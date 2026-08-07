@@ -1,5 +1,6 @@
 #include "lexer.h"
 #include "token.h"
+#include "parser.h"
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -80,6 +81,34 @@ static void print_token(const Token *token)
     puts("\"");
 }
 
+static void print_token_text(const Token *token) {
+    fwrite(token->start,1,token->length,stdout);
+}
+
+static void print_flat_expression(const Flat_Expression *expression) {
+    puts("FlatExpression");
+
+    printf("  first:  ");
+    print_token_text(&expression->first);
+    putchar('\n');
+
+    puts("  operations: ");
+
+    for(size_t i=0;i<expression->operation_count;i++){
+        const Flat_Operation *operation = &expression->operations[i];
+
+        printf("   [%zu] ",i);
+        
+        print_token_text(&operation->operator_token);
+
+        putchar(' ');
+
+        print_token_text(&operation->operand);
+
+        putchar('\n');
+    }
+}
+
 int main(int argc, char **argv)
 {
     if (argc != 2) {
@@ -117,28 +146,39 @@ int main(int argc, char **argv)
         source_length
     );
 
-    for (;;) {
-        const Token token =
-            lexer_next_token(&lexer);
+    Parser parser;
+    
+    if (!parser_init(&parser,&lexer)) {
+        fprintf(
+            stderr,
+            "%s:%s\n",
+            argv[1],
+            parser_error_message(&parser)
+        );
 
-        print_token(&token);
-
-        if (token.kind == TOKEN_INVALID) {
-            fprintf(
-                stderr,
-                "%s:%s\n",
-                argv[1],
-                lexer_error_message(&lexer)
-            );
-
-            free(source);
-            return EXIT_FAILURE;
-        }
-
-        if (token.kind == TOKEN_END) {
-            break;
-        }
+        free(source);
+        return EXIT_FAILURE;
     }
+
+    Flat_Expression expression;
+
+    if (!parser_parse_flat_expression(&parser,&expression)) {
+        fprintf(
+            stderr,
+            "%s:%s\n",
+            argv[1],
+            parser_error_message(&parser)
+        );
+
+        flat_expression_free(&expression);
+        free(source);
+
+        return EXIT_FAILURE;
+    }
+
+    print_flat_expression(&expression);
+
+    flat_expression_free(&expression);
 
     free(source);
     return EXIT_SUCCESS;
