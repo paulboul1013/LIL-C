@@ -64,7 +64,7 @@ static char *read_file(
 static void print_token(const Token *token)
 {
     printf(
-        "%zu:%zu  %-16s  \"",
+        "%zu:%zu  %-18s  \"",
         token->line,
         token->column,
         token_kind_name(token->kind)
