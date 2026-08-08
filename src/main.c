@@ -81,33 +81,6 @@ static void print_token(const Token *token)
     puts("\"");
 }
 
-static void print_token_text(const Token *token) {
-    fwrite(token->start,1,token->length,stdout);
-}
-
-static void print_flat_expression(const Flat_Expression *expression) {
-    puts("FlatExpression");
-
-    printf("  first:  ");
-    print_token_text(&expression->first);
-    putchar('\n');
-
-    puts("  operations: ");
-
-    for(size_t i=0;i<expression->operation_count;i++){
-        const Flat_Operation *operation = &expression->operations[i];
-
-        printf("   [%zu] ",i);
-        
-        print_token_text(&operation->operator_token);
-
-        putchar(' ');
-
-        print_token_text(&operation->operand);
-
-        putchar('\n');
-    }
-}
 
 int main(int argc, char **argv)
 {
@@ -176,7 +149,9 @@ int main(int argc, char **argv)
         return EXIT_FAILURE;
     }
 
-    print_flat_expression(&expression);
+
+
+    flat_expression_print_ascii(&expression);
 
     flat_expression_free(&expression);
 

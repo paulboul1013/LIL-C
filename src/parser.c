@@ -147,7 +147,7 @@ bool parser_parse_flat_expression(Parser *parser,Flat_Expression *expression) {
         if (!token_is_operand(parser->current.kind)) {
             parser_set_error(
                 parser,
-                "zu:zu: expected operand after operator",
+                "%zu:%zu: expected operand after operator",
                 parser->current.line,
                 parser->current.column
             );
@@ -179,7 +179,7 @@ bool parser_parse_flat_expression(Parser *parser,Flat_Expression *expression) {
     if (parser->current.kind!=TOKEN_SEMICOLON) {
         parser_set_error(
             parser,
-            "zu%zu: expected ';' after expression",
+            "%zu:%zu: expected ';' after expression",
             parser->current.line,
             parser->current.column
         );
@@ -208,4 +208,73 @@ void flat_expression_free(Flat_Expression *expression){
 
 const char *parser_error_message(const Parser *parser) {
     return parser->error_message;
+}
+
+static void print_token_ascii(const Token *token) {
+    putchar('"');
+
+    fwrite(token->start,1,token->length,stdout);
+
+    putchar('"');
+}
+
+void flat_expression_print_ascii(const Flat_Expression *expression){
+    printf("Flat_Expression\n");
+    printf("|\n");
+
+    printf("+-- first\n");
+    printf("|   `-- Token(");
+
+    print_token_ascii(&expression->first);
+
+    printf(")\n");
+
+    printf("|\n");
+    printf("+-- operations\n");
+
+    if (expression->operation_count==0) {
+        printf("|   `-- (empty)\n");
+    }
+
+    for(size_t i=0;i<expression->operation_count;i++){
+        const Flat_Operation *operation = &expression->operations[i];
+
+        const bool is_last = i + 1 == expression->operation_count;
+
+        if (is_last) {
+            printf("|   `-- [%zu]\n",i);
+
+            printf("|       +-- operator ");
+
+            print_token_ascii(&operation->operator_token);
+
+            putchar('\n');
+
+            printf("|       `-- operand  ");
+
+            print_token_ascii(&operation->operand);
+
+            putchar('\n');
+        } else {
+            printf("|   +-- [%zu]\n",i);
+
+            printf("|   |   +-- operator ");
+
+            print_token_ascii(&operation->operator_token);
+
+            putchar('\n');
+
+            printf("|   |   `-- operand  ");
+
+            print_token_ascii(&operation->operand);
+
+            putchar('\n');
+        }
+    }
+
+    printf("|\n");
+
+    printf("+-- operation_count = %zu\n",expression->operation_count);
+
+    printf("`-- operation_capacity = %zu\n",expression->operation_capacity);
 }

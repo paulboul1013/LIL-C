@@ -51,6 +51,7 @@ const char *parser_error_message(const Parser *parser);
 
 void flat_expression_free(Flat_Expression *expression);
 
+void flat_expression_print_ascii(const Flat_Expression *expression);
 
 #endif
 
