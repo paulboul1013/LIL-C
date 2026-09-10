@@ -18,24 +18,22 @@ static const Keyword keywords[] = {
     {"continue", TOKEN_CONTINUE}
 };
 
-void lexer_init(Lexer *lexer,const char *source,size_t source_length) {
+void lexer_init(Lexer *lexer, const Source *source) {
     lexer->source = source;
-    lexer->source_length = source_length;
 
     lexer->position = 0;
     lexer->line = 1;
     lexer->column = 1;
 
-    lexer->had_error = false;
-    lexer->error_message[0]='\0';
+    diagnostic_clear(&lexer->diagnostic);
 }
 
-const char *lexer_error_message(const Lexer *lexer) {
-    return lexer->error_message;
+const Diagnostic *lexer_diagnostic(const Lexer *lexer) {
+    return &lexer->diagnostic;
 }
 
 static bool lexer_is_at_end(const Lexer *lexer) {
-    return lexer->position >= lexer->source_length;
+    return lexer->position >= lexer->source->length;
 }
 
 static char lexer_peek(const Lexer *lexer) {
@@ -43,17 +41,7 @@ static char lexer_peek(const Lexer *lexer) {
         return '\0';
     }
 
-    return lexer->source[lexer->position];
-}
-
-static char lexer_peek_next(const Lexer *lexer) {
-    const size_t next_position = lexer->position + 1;
-    
-    if (next_position>=lexer->source_length) {
-        return '\0';
-    }
-
-    return lexer->source[next_position];
+    return lexer->source->text[lexer->position];
 }
 
 static char lexer_advance(Lexer *lexer) {
@@ -61,7 +49,7 @@ static char lexer_advance(Lexer *lexer) {
         return '\0';
     }
 
-    const char current = lexer->source[lexer->position];
+    const char current = lexer->source->text[lexer->position];
 
     ++lexer->position;
 
@@ -92,26 +80,32 @@ static Token lexer_make_token(const Lexer *lexer,Token_Kind kind,size_t start ,s
     Token token;
     
     token.kind = kind;
-    token.start = lexer->source + start;
-    token.length = lexer->position - start;
-    token.line =line;
-    token.column = column;
+    token.span.offset = start;
+    token.span.length = lexer->position - start;
+    token.span.line = line;
+    token.span.column = column;
 
     return token;
 }
 
 static Token lexer_error_token(Lexer *lexer, size_t start, size_t line ,size_t column, const char *message) {
-    lexer->had_error = true;
-
-    snprintf(lexer->error_message,sizeof(lexer->error_message),"%zu:%zu: %s",line,column,message);
-
-    return lexer_make_token(
+    const Token token = lexer_make_token(
         lexer,
         TOKEN_INVALID,
         start,
         line,
         column
     );
+
+    diagnostic_set(
+        &lexer->diagnostic,
+        DIAGNOSTIC_LEXICAL,
+        token.span,
+        "%s",
+        message
+    );
+
+    return token;
 }
 
 static void lexer_skip_ignored(Lexer *lexer) {
@@ -190,7 +184,10 @@ static Token lexer_scan_identifier(Lexer *lexer,size_t start,size_t line,size_t 
 
     const size_t length = lexer->position - start;
     
-    const Token_Kind kind = Identifier_kind(lexer->source+start,length);
+    const Token_Kind kind = Identifier_kind(
+        lexer->source->text + start,
+        length
+    );
 
     return lexer_make_token(lexer,kind,start,line,column);
 }

@@ -1,7 +1,7 @@
 #ifndef LIL_TOKEN_H
 #define LIL_TOKEN_H
 
-#include <stddef.h>
+#include "source.h"
 
 typedef enum {
     TOKEN_END,
@@ -54,21 +54,7 @@ typedef enum {
 
 typedef struct {
     Token_Kind kind;
-
-    //token in the source code of start position
-    //not including '\0' in the end
-    const char *start;
-
-    //token character count
-    size_t length;
-
-    //debug info
-    //line number
-    size_t line;
-
-    //column number
-    size_t column;
-
+    Source_Span span;
 } Token;
 
 const char* token_kind_name(Token_Kind kind);

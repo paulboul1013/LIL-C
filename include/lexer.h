@@ -1,14 +1,14 @@
 #ifndef LIL_LEXER_H
 #define LIL_LEXER_H
 
+#include "diagnostic.h"
 #include "token.h"
 
 #include <stdbool.h>
 #include <stddef.h>
 
 typedef struct {
-    const char *source;
-    size_t source_length;
+    const Source *source;
 
     //pointer to next not read yet character
     size_t position;
@@ -18,14 +18,13 @@ typedef struct {
     size_t line;
     size_t column;
 
-    bool had_error;
-    char error_message[256];
+    Diagnostic diagnostic;
 } Lexer;
 
-void lexer_init(Lexer *lexer,const char *source,size_t source_length);
+void lexer_init(Lexer *lexer, const Source *source);
 Token lexer_next_token(Lexer *lexer);
 
-const char *lexer_error_message(const Lexer *lexer);
+const Diagnostic *lexer_diagnostic(const Lexer *lexer);
 
 
 #endif

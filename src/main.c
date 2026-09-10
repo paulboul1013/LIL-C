@@ -1,6 +1,5 @@
-#include "lexer.h"
-#include "token.h"
-#include "parser.h"
+#include "lil.h"
+#include "ast_debug.h"
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -62,26 +61,6 @@ static char *read_file(
     return buffer;
 }
 
-static void print_token(const Token *token)
-{
-    printf(
-        "%zu:%zu  %-18s  \"",
-        token->line,
-        token->column,
-        token_kind_name(token->kind)
-    );
-
-    fwrite(
-        token->start,
-        1,
-        token->length,
-        stdout
-    );
-
-    puts("\"");
-}
-
-
 int main(int argc, char **argv)
 {
     if (argc != 2) {
@@ -111,50 +90,26 @@ int main(int argc, char **argv)
         return EXIT_FAILURE;
     }
 
-    Lexer lexer;
-
-    lexer_init(
-        &lexer,
+    Lil_Result result;
+    const bool succeeded = lil_run_source(
+        argv[1],
         source,
-        source_length
+        source_length,
+        &result
     );
-
-    Parser parser;
-    
-    if (!parser_init(&parser,&lexer)) {
-        fprintf(
-            stderr,
-            "%s:%s\n",
-            argv[1],
-            parser_error_message(&parser)
-        );
-
-        free(source);
-        return EXIT_FAILURE;
-    }
-
-    Flat_Expression expression;
-
-    if (!parser_parse_flat_expression(&parser,&expression)) {
-        fprintf(
-            stderr,
-            "%s:%s\n",
-            argv[1],
-            parser_error_message(&parser)
-        );
-
-        flat_expression_free(&expression);
-        free(source);
-
-        return EXIT_FAILURE;
-    }
-
-
-
-    flat_expression_print_ascii(&expression);
-
-    flat_expression_free(&expression);
-
     free(source);
+
+    if (!succeeded) {
+        diagnostic_fprint(stderr, &result.source, &result.diagnostic);
+        lil_result_free(&result);
+        return EXIT_FAILURE;
+    }
+
+    ast_debug_print_program(
+        stdout,
+        &result.source,
+        &result.program
+    );
+    lil_result_free(&result);
     return EXIT_SUCCESS;
 }

@@ -1,280 +1,293 @@
 #include "parser.h"
 
-#include <stdarg.h>
-#include <stdio.h>
 #include <stdlib.h>
-#include <string.h>
 
-static void parser_set_error(Parser *parser,const char *format,...) {
-    if (parser->had_error) {
-        return;
+struct Parser {
+    Lexer *lexer;
+    Token current;
+    Diagnostic diagnostic;
+};
+
+static void parser_set_error(
+    Parser *parser,
+    Diagnostic_Stage stage,
+    Source_Span span,
+    const char *message
+) {
+    if (!diagnostic_has_error(&parser->diagnostic)) {
+        diagnostic_set(
+            &parser->diagnostic,
+            stage,
+            span,
+            "%s",
+            message
+        );
     }
-
-    parser->had_error = true;
-
-    va_list args;
-    va_start(args,format);
-
-    vsnprintf(parser->error_message,sizeof(parser->error_message),format,args);
-
-    va_end(args);
 }
-
 
 static bool parser_advance(Parser *parser) {
-    const Token token=lexer_next_token(parser->lexer);
-    
-    if (token.kind==TOKEN_INVALID) {
-        parser_set_error(
-            parser,
-            "%s",
-            lexer_error_message(parser->lexer)
-        );
+    parser->current = lexer_next_token(parser->lexer);
 
+    if (parser->current.kind == TOKEN_INVALID) {
+        parser->diagnostic = *lexer_diagnostic(parser->lexer);
         return false;
     }
 
-    parser->current = token;
-    
     return true;
 }
 
-bool parser_init(Parser *parser,Lexer *lexer) {
+Parser *parser_create(Lexer *lexer) {
+    Parser *parser = malloc(sizeof(*parser));
+
+    if (parser == NULL) {
+        return NULL;
+    }
+
     parser->lexer = lexer;
-
-    parser->had_error = false;
-    parser->error_message[0]='\0';
-
-    memset(&parser->current,0,sizeof(parser->current));
-
-    return parser_advance(parser);
+    diagnostic_clear(&parser->diagnostic);
+    parser_advance(parser);
+    return parser;
 }
 
+void parser_destroy(Parser *parser) {
+    free(parser);
+}
 
-static bool token_is_operand(Token_Kind kind) {
-    switch (kind) {
-        case TOKEN_IDENTIFIER:
-        case TOKEN_NUMBER:
-        case TOKEN_CHARACTER:
-            return true;
-        default:
-            return false;
+static Source_Span source_span_through(
+    Source_Span first,
+    Source_Span last
+) {
+    Source_Span span = first;
+    span.length = last.offset + last.length - first.offset;
+    return span;
+}
+
+static Expr *parser_parse_primary(Parser *parser) {
+    const bool is_variable = parser->current.kind == TOKEN_IDENTIFIER;
+    const bool is_literal = parser->current.kind == TOKEN_NUMBER ||
+                            parser->current.kind == TOKEN_CHARACTER;
+
+    if (!is_variable && !is_literal) {
+        parser_set_error(
+            parser,
+            DIAGNOSTIC_SYNTAX,
+            parser->current.span,
+            "expected expression"
+        );
+        return NULL;
     }
-}
 
-static bool token_is_flat_operator(Token_Kind kind) {
-    switch (kind) {
-        case TOKEN_ASSIGN:
-        case TOKEN_PLUS:
-        case TOKEN_MINUS:
-        case TOKEN_STAR:
-        case TOKEN_SLASH:
-            return true;
-        default:
-            return false;
+    Expr *expression = malloc(sizeof(*expression));
+
+    if (expression == NULL) {
+        parser_set_error(
+            parser,
+            DIAGNOSTIC_INTERNAL,
+            parser->current.span,
+            "out of memory while parsing expression"
+        );
+        return NULL;
     }
+
+    if (is_variable) {
+        expression->kind = EXPR_VARIABLE;
+        expression->as.variable = parser->current;
+    } else {
+        expression->kind = EXPR_LITERAL;
+        expression->as.literal = parser->current;
+    }
+
+    expression->span = parser->current.span;
+
+    if (!parser_advance(parser)) {
+        free(expression);
+        return NULL;
+    }
+
+    return expression;
 }
 
-static bool flat_expression_push_operation(Flat_Expression *expression, Flat_Operation operation ) {
-    if (expression->operation_count==expression->operation_capacity) {
-        size_t new_capacity;
+static Expr *parser_make_binary(
+    Parser *parser,
+    Expr *left,
+    Token operator_token,
+    Expr *right
+) {
+    Expr *expression = malloc(sizeof(*expression));
 
-        if (expression->operation_capacity==0) {
-            new_capacity=4;
-        } else {
-            new_capacity = expression->operation_capacity * 2;
+    if (expression == NULL) {
+        parser_set_error(
+            parser,
+            DIAGNOSTIC_INTERNAL,
+            operator_token.span,
+            "out of memory while parsing expression"
+        );
+        expr_free(left);
+        expr_free(right);
+        return NULL;
+    }
+
+    expression->kind = EXPR_BINARY;
+    expression->span = source_span_through(left->span, right->span);
+    expression->as.binary.left = left;
+    expression->as.binary.operator_token = operator_token;
+    expression->as.binary.right = right;
+    return expression;
+}
+
+static Expr *parser_parse_multiplicative(Parser *parser) {
+    Expr *left = parser_parse_primary(parser);
+
+    while (left != NULL &&
+           (parser->current.kind == TOKEN_STAR ||
+            parser->current.kind == TOKEN_SLASH)) {
+        const Token operator_token = parser->current;
+
+        if (!parser_advance(parser)) {
+            expr_free(left);
+            return NULL;
         }
 
-        Flat_Operation *new_operations = realloc(expression->operations,new_capacity*sizeof(Flat_Operation));
-    
-        if (new_operations==NULL) {
+        Expr *right = parser_parse_primary(parser);
+
+        if (right == NULL) {
+            expr_free(left);
+            return NULL;
+        }
+
+        left = parser_make_binary(parser, left, operator_token, right);
+    }
+
+    return left;
+}
+
+static Expr *parser_parse_additive(Parser *parser) {
+    Expr *left = parser_parse_multiplicative(parser);
+
+    while (left != NULL &&
+           (parser->current.kind == TOKEN_PLUS ||
+            parser->current.kind == TOKEN_MINUS)) {
+        const Token operator_token = parser->current;
+
+        if (!parser_advance(parser)) {
+            expr_free(left);
+            return NULL;
+        }
+
+        Expr *right = parser_parse_multiplicative(parser);
+
+        if (right == NULL) {
+            expr_free(left);
+            return NULL;
+        }
+
+        left = parser_make_binary(parser, left, operator_token, right);
+    }
+
+    return left;
+}
+
+static Expr *parser_parse_expression(Parser *parser) {
+    Expr *left = parser_parse_additive(parser);
+
+    if (left == NULL || parser->current.kind != TOKEN_ASSIGN) {
+        return left;
+    }
+
+    const Token equals_token = parser->current;
+
+    if (left->kind != EXPR_VARIABLE) {
+        parser_set_error(
+            parser,
+            DIAGNOSTIC_SYNTAX,
+            equals_token.span,
+            "invalid assignment target"
+        );
+        expr_free(left);
+        return NULL;
+    }
+
+    const Token name = left->as.variable;
+
+    if (!parser_advance(parser)) {
+        expr_free(left);
+        return NULL;
+    }
+
+    Expr *value = parser_parse_expression(parser);
+
+    if (value == NULL) {
+        expr_free(left);
+        return NULL;
+    }
+
+    left->kind = EXPR_ASSIGNMENT;
+    left->span = source_span_through(name.span, value->span);
+    left->as.assignment.name = name;
+    left->as.assignment.equals_token = equals_token;
+    left->as.assignment.value = value;
+    return left;
+}
+
+bool parser_parse_program(Parser *parser, Program *out) {
+    out->expressions = NULL;
+    out->expression_count = 0;
+
+    if (diagnostic_has_error(&parser->diagnostic)) {
+        return false;
+    }
+
+    while (parser->current.kind != TOKEN_END) {
+        Expr *expression = parser_parse_expression(parser);
+
+        if (expression == NULL) {
+            program_free(out);
             return false;
         }
 
-        expression->operations = new_operations;
+        if (parser->current.kind != TOKEN_SEMICOLON) {
+            parser_set_error(
+                parser,
+                DIAGNOSTIC_SYNTAX,
+                parser->current.span,
+                "expected ';' after expression"
+            );
+            expr_free(expression);
+            program_free(out);
+            return false;
+        }
 
-        expression->operation_capacity=new_capacity;
-    
+        if (!parser_advance(parser)) {
+            expr_free(expression);
+            program_free(out);
+            return false;
+        }
+
+        Expr **expressions = realloc(
+            out->expressions,
+            (out->expression_count + 1) * sizeof(*out->expressions)
+        );
+
+        if (expressions == NULL) {
+            parser_set_error(
+                parser,
+                DIAGNOSTIC_INTERNAL,
+                parser->current.span,
+                "out of memory while parsing program"
+            );
+            expr_free(expression);
+            program_free(out);
+            return false;
+        }
+
+        out->expressions = expressions;
+        out->expressions[out->expression_count] = expression;
+        ++out->expression_count;
     }
-
-    expression->operations[expression->operation_count] = operation;
-
-    ++expression->operation_count;
 
     return true;
 }
 
-static void flat_expression_init(Flat_Expression *expression) {
-    memset(expression,0,sizeof(*expression));
-}
-
-bool parser_parse_flat_expression(Parser *parser,Flat_Expression *expression) {
-    flat_expression_init(expression);
-
-    //expression first token must be an operand
-    if (!token_is_operand(parser->current.kind)) {
-        parser_set_error(
-            parser,
-            "%zu:%zu: expected operand",
-            parser->current.line,
-            parser->current.column
-        );
-
-
-        return false;
-    }
-
-    //save first operand 
-    expression->first = parser->current;
-
-    if (!parser_advance(parser)) {
-        return false;
-    }
-
-    //repeat read operator and operand
-    while (token_is_flat_operator(parser->current.kind)) {
-        Flat_Operation operation={0};
-
-        operation.operator_token = parser->current;
-
-        if (!parser_advance(parser)) {
-            return false;
-        }
-
-        
-        //after operator must have operand
-
-        if (!token_is_operand(parser->current.kind)) {
-            parser_set_error(
-                parser,
-                "%zu:%zu: expected operand after operator",
-                parser->current.line,
-                parser->current.column
-            );
-
-            return false;
-        }
-
-        operation.operand = parser->current;
-
-        if (!flat_expression_push_operation(expression,operation)) {
-            parser_set_error(
-                parser,
-                "out of memory while parsing expression"
-            );
-
-            return false;
-        }
-
-        //advance to next token
-        if (!parser_advance(parser)) {
-            return false;
-        }
-        
-    }
-
-
-    
-    //expression must have a ';' for ending
-    if (parser->current.kind!=TOKEN_SEMICOLON) {
-        parser_set_error(
-            parser,
-            "%zu:%zu: expected ';' after expression",
-            parser->current.line,
-            parser->current.column
-        );
-
-        return false;
-    }
-
-        
-    //advance to ;
-    if (!parser_advance(parser)) {
-        return false;
-    }
-
-
-    return true;
-}
-
-
-void flat_expression_free(Flat_Expression *expression){
-    free(expression->operations);
-
-    expression->operations = NULL;
-    expression->operation_count = 0;
-    expression->operation_capacity = 0;
-}
-
-const char *parser_error_message(const Parser *parser) {
-    return parser->error_message;
-}
-
-static void print_token_ascii(const Token *token) {
-    putchar('"');
-
-    fwrite(token->start,1,token->length,stdout);
-
-    putchar('"');
-}
-
-void flat_expression_print_ascii(const Flat_Expression *expression){
-    printf("Flat_Expression\n");
-    printf("|\n");
-
-    printf("+-- first\n");
-    printf("|   `-- Token(");
-
-    print_token_ascii(&expression->first);
-
-    printf(")\n");
-
-    printf("|\n");
-    printf("+-- operations\n");
-
-    if (expression->operation_count==0) {
-        printf("|   `-- (empty)\n");
-    }
-
-    for(size_t i=0;i<expression->operation_count;i++){
-        const Flat_Operation *operation = &expression->operations[i];
-
-        const bool is_last = i + 1 == expression->operation_count;
-
-        if (is_last) {
-            printf("|   `-- [%zu]\n",i);
-
-            printf("|       +-- operator ");
-
-            print_token_ascii(&operation->operator_token);
-
-            putchar('\n');
-
-            printf("|       `-- operand  ");
-
-            print_token_ascii(&operation->operand);
-
-            putchar('\n');
-        } else {
-            printf("|   +-- [%zu]\n",i);
-
-            printf("|   |   +-- operator ");
-
-            print_token_ascii(&operation->operator_token);
-
-            putchar('\n');
-
-            printf("|   |   `-- operand  ");
-
-            print_token_ascii(&operation->operand);
-
-            putchar('\n');
-        }
-    }
-
-    printf("|\n");
-
-    printf("+-- operation_count = %zu\n",expression->operation_count);
-
-    printf("`-- operation_capacity = %zu\n",expression->operation_capacity);
+const Diagnostic *parser_diagnostic(const Parser *parser) {
+    return &parser->diagnostic;
 }
