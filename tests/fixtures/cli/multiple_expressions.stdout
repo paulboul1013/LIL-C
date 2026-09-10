@@ -1,0 +1,9 @@
+Program (2 expressions)
+[0]
+  Assignment "a"
+    Literal "1"
+[1]
+  Assignment "b"
+    Binary "+"
+      Variable "a"
+      Literal "2"
