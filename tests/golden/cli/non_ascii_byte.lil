@@ -1,0 +1,2 @@
+% spec: §2.8 a non-ASCII byte is an unexpected character, shown escaped.
+é = 1;

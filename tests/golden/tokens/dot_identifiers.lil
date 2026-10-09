@@ -1,0 +1,2 @@
+% spec: §2.4 identifiers may start with '.' and contain '.', '_' and digits.
+.loop r0.tmp . .. ._ _ _x.1 r0 r7 R0 .9

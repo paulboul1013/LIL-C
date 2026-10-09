@@ -1,0 +1,1 @@
+tests/golden/cli/else_without_if.lil:3:1: syntax error: 'else' without a matching 'if'

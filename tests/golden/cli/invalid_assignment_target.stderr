@@ -1,0 +1,1 @@
+tests/golden/cli/invalid_assignment_target.lil:2:7: syntax error: invalid assignment target

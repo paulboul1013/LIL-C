@@ -1,0 +1,1 @@
+tests/golden/cli/if_missing_close.lil:2:7: syntax error: expected ')' after condition

@@ -1,0 +1,2 @@
+% spec: §3.6 a do body must be followed by while.
+do x = 1; until (x);

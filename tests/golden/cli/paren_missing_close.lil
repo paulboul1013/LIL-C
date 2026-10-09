@@ -1,0 +1,2 @@
+% spec: §4.1 a parenthesized expression needs its closing parenthesis.
+x = (a + b;

@@ -1,0 +1,2 @@
+-o given more than once
+usage: lilc <source.lil> [-o <file>] [--dump-tokens|--dump-ast|--dump-ir|--dump-asm|--interp] [--ir-input] [--step-limit <n>] [-O0|-O1|--passes=<list>]

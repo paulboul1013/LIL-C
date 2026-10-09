@@ -1,0 +1,2 @@
+% spec: §2.6 only the listed escapes are allowed.
+x = '\q';

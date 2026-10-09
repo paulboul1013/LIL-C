@@ -1,0 +1,6 @@
+tests/golden/cli/recovery_do_tail.lil:2:8: syntax error: expected expression
+tests/golden/cli/recovery_do_tail.lil:3:8: syntax error: expected expression
+tests/golden/cli/recovery_do_tail.lil:4:1: syntax error: expected ';' after 'do' statement
+tests/golden/cli/recovery_do_tail.lil:5:10: syntax error: expected expression
+tests/golden/cli/recovery_do_tail.lil:5:22: syntax error: expected ';' after 'do' statement
+tests/golden/cli/recovery_do_tail.lil:6:15: syntax error: expected expression

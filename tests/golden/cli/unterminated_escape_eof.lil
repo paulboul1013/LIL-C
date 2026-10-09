@@ -1,0 +1,2 @@
+% spec: §2.6 end of file right after a backslash in a character literal.
+x = '\

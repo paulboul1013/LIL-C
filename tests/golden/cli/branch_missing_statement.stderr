@@ -1,0 +1,5 @@
+tests/golden/cli/branch_missing_statement.lil:2:8: syntax error: expected statement
+tests/golden/cli/branch_missing_statement.lil:3:16: syntax error: expected statement
+tests/golden/cli/branch_missing_statement.lil:4:11: syntax error: expected statement
+tests/golden/cli/branch_missing_statement.lil:5:4: syntax error: expected statement
+tests/golden/cli/branch_missing_statement.lil:7:1: syntax error: expected statement

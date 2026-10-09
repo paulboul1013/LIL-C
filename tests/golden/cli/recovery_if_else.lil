@@ -1,0 +1,8 @@
+% spec: §6.3.4 an error before 'else' abandons the whole if statement; its else is skipped, not reported again.
+if (x) a b; else c;
+if (x +) { a; } else { b; }
+if (a) if (b) x = ; else y; else z;
+while (1) { if (a) b c; else d; }
+if (a) x = 1; else if (b) y = ; else if (c) z; else w;
+if (a) q = ; else r = ;
+ok = 1;

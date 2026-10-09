@@ -1,0 +1,7 @@
+tests/golden/cli/recovery_if_else.lil:2:10: syntax error: expected ';' after expression
+tests/golden/cli/recovery_if_else.lil:3:8: syntax error: expected expression
+tests/golden/cli/recovery_if_else.lil:4:19: syntax error: expected expression
+tests/golden/cli/recovery_if_else.lil:5:22: syntax error: expected ';' after expression
+tests/golden/cli/recovery_if_else.lil:6:31: syntax error: expected expression
+tests/golden/cli/recovery_if_else.lil:7:12: syntax error: expected expression
+tests/golden/cli/recovery_if_else.lil:7:23: syntax error: expected expression

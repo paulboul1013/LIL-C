@@ -1,0 +1,2 @@
+tests/golden/cli/dump_asm_not_implemented.lil:2:1: warning: variable 'x' is assigned but never read
+--dump-asm is not implemented yet

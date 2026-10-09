@@ -1,0 +1,2 @@
+% spec: §3.4 an if needs a statement body (even an empty one).
+if (x)

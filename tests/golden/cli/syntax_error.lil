@@ -1,0 +1,2 @@
+% spec: §4.1 an operand is required after a binary operator.
+a + ;

@@ -1,0 +1,2 @@
+% spec: §4.4 the target of '=' must be an identifier.
+x + y = z;

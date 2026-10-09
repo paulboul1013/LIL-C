@@ -1,0 +1,2 @@
+tests/golden/cli/recovery_refused_if_tails.lil:2:1793: syntax error: nesting too deep
+tests/golden/cli/recovery_refused_if_tails.lil:3:2057: syntax error: 'else' without a matching 'if'

@@ -1,0 +1,1 @@
+tests/golden/cli/if_missing_open.lil:2:4: syntax error: expected '(' after 'if'

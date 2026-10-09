@@ -1,0 +1,8 @@
+% spec: §4.1 calls; §4.10 putc (any case) is the only function.
+% Other names and argument counts parse but are semantic errors
+% (cli/sema_unknown_function, cli/sema_putc_two_arguments).
+putc(72);
+PUTC('\n');
+putc(x = 2);
+x = putc(Putc(-x)) + 1;
+r0 = x;

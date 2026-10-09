@@ -1,0 +1,1 @@
+tests/golden/cli/nul_byte.lil:2:7: lexical error: unexpected character '\x00'

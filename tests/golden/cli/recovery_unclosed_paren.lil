@@ -1,0 +1,6 @@
+% spec: §6.3.4 step 2 the ')' that closes a parenthesis left open by an abandoned statement belongs to it.
+f(a; b); c = 1;
+x = (1; y); z = 2;
+if (a; b) c; else d;
+f(a; g(b); c = 1;
+f(a; (b + )); c = ;

@@ -1,0 +1,2 @@
+% spec: §4.4 a parenthesized name is not an assignment target.
+(x) = 1;

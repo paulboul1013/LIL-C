@@ -1,0 +1,2 @@
+% spec: §2.6 character literals; bytes outside printable ASCII print as \xHH (§6.4.1).
+'a' ' ' '%' '"' '\0' '\n' '\r' '\t' '\\' '\'' '	' '�' ''

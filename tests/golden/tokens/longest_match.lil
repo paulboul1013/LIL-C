@@ -1,0 +1,4 @@
+% spec: §2.3 longest match for two-character operators.
+a<=b a<b a< =b a&&b a&b a& &b a||b a|b
+<== &&& ||| ~== === >==
+a~=b x=~y --x

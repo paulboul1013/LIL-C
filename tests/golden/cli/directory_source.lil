@@ -1,0 +1,2 @@
+% spec: §6.4 a directory given as the source path is an unreadable file.
+% Run on a directory (see directory_source.cmdline).

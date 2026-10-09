@@ -1,0 +1,2 @@
+% spec: §2.6 an unsupported escape before end of file.
+x = '\q

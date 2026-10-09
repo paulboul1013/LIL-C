@@ -1,0 +1,2 @@
+% spec: §2.6 a character literal holds exactly one character.
+x = 'ab';

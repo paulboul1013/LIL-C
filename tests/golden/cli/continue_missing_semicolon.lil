@@ -1,0 +1,2 @@
+% spec: §3.7 continue must be followed by ;.
+while (1) continue

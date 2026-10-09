@@ -1,0 +1,2 @@
+% spec: §2.6 end of file inside a character literal.
+x = '

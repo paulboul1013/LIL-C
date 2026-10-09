@@ -1,0 +1,1 @@
+tests/golden/cli/deep_parentheses.lil:2:260: syntax error: nesting too deep

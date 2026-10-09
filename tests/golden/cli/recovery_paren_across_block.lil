@@ -1,0 +1,3 @@
+% spec: §6.3.4 step 2 a block parsed inside a statement keeps the parentheses left open outside it: the final ")" still belongs to the abandoned call, so only one error.
+f(a; if (b) { c; } else );
+f(a; if (b) c; else );

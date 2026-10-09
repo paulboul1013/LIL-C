@@ -1,0 +1,26 @@
+% spec: §6.3.4 at most 20 errors are reported, then parsing stops.
+x = ;
+x = ;
+x = ;
+x = ;
+x = ;
+x = ;
+x = ;
+x = ;
+x = ;
+x = ;
+x = ;
+x = ;
+x = ;
+x = ;
+x = ;
+x = ;
+x = ;
+x = ;
+x = ;
+x = ;
+x = ;
+x = ;
+x = ;
+x = ;
+x = ;

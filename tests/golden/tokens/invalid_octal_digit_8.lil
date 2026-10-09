@@ -1,0 +1,2 @@
+% spec: §2.7.2 a leading 0 makes the whole digit string octal, so 08 is an error.
+08

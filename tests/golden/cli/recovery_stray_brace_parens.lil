@@ -1,0 +1,4 @@
+% spec: §6.3.4 parentheses and abandoned tails never cross a stray top-level brace
+g(b; } c); h = ;
+f(a; } ) ;
+f(a; do b c; } ) while (y); z = ;

@@ -1,0 +1,2 @@
+% spec: §2.5 keywords are case-insensitive.
+IF (x) WHILE (y) Break; ElSe DO Continue; wHiLe (z);

@@ -1,0 +1,2 @@
+tests/golden/cli/syntax_then_lexical_error.lil:2:5: syntax error: expected expression
+tests/golden/cli/syntax_then_lexical_error.lil:3:5: lexical error: unexpected character '@'

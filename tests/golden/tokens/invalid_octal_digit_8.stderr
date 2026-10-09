@@ -1,0 +1,1 @@
+tests/golden/tokens/invalid_octal_digit_8.lil:2:1: lexical error: invalid digit '8' in octal literal

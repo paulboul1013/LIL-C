@@ -1,0 +1,2 @@
+% spec: §6.4 the compiler takes exactly one source path.
+% Run with no arguments (see usage_no_arguments.cmdline).

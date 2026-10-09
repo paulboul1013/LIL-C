@@ -27,5 +27,11 @@ bool source_init(
 /* source_init() copies path and text; release both with source_free(). */
 void source_free(Source *source);
 const char *source_text_at(const Source *source, Source_Span span);
+/*
+ * The empty span just past the last byte, with its §2.1 line and column.
+ * Every token and statement span starts before it, so a diagnostic there
+ * sorts after all of them.
+ */
+Source_Span source_end_span(const Source *source);
 
 #endif

@@ -1,0 +1,1 @@
+tests/golden/ast/parenthesized_spans.lil:2:1: warning: variable 'y' is assigned but never read

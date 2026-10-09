@@ -1,0 +1,1 @@
+tests/golden/cli/errors_before_not_implemented.lil:2:5: lexical error: invalid digit '8' in octal literal

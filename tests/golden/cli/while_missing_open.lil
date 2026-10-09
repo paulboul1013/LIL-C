@@ -1,0 +1,2 @@
+% spec: §3.5 while needs ( after the keyword.
+while x) y;

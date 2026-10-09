@@ -1,0 +1,2 @@
+% spec: §4.1 argument-list: a comma must be followed by an expression.
+f(1,);

@@ -1,0 +1,1 @@
+tests/golden/tokens/huge_integer.lil:2:1: lexical error: integer literal out of range

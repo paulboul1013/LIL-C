@@ -1,0 +1,2 @@
+% spec: §2.6 empty character literal.
+x = '';

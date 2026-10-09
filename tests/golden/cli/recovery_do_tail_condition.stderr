@@ -1,0 +1,2 @@
+tests/golden/cli/recovery_do_tail_condition.lil:2:7: syntax error: expected expression
+tests/golden/cli/recovery_do_tail_condition.lil:2:16: syntax error: expected expression

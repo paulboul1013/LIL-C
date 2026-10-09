@@ -1,0 +1,2 @@
+tests/golden/cli/height_then_lexical_error.lil:2:4099: syntax error: nesting too deep
+tests/golden/cli/height_then_lexical_error.lil:2:4103: lexical error: unexpected character '@'

@@ -1,0 +1,1 @@
+tests/golden/cli/call_missing_close.lil:2:8: syntax error: expected ')' after arguments

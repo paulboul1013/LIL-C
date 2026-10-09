@@ -1,0 +1,6 @@
+tests/golden/cli/recovery_skipped_tail.lil:2:6: syntax error: expected ';' after expression
+tests/golden/cli/recovery_skipped_tail.lil:3:14: syntax error: expected ';' after expression
+tests/golden/cli/recovery_skipped_tail.lil:4:6: syntax error: expected ';' after expression
+tests/golden/cli/recovery_skipped_tail.lil:4:33: syntax error: expected expression
+tests/golden/cli/recovery_skipped_tail.lil:5:10: syntax error: expected ';' after expression
+tests/golden/cli/recovery_skipped_tail.lil:5:20: syntax error: 'else' without a matching 'if'

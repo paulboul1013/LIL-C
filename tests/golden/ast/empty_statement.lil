@@ -1,0 +1,6 @@
+% spec: §3.2 the empty statement, alone and as a body.
+;
+;;
+if (x) ; else ;
+while (0) ;
+do ; while (0);

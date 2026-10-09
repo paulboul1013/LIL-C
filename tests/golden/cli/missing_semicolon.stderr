@@ -1,0 +1,1 @@
+tests/golden/cli/missing_semicolon.lil:2:6: syntax error: expected ';' after expression

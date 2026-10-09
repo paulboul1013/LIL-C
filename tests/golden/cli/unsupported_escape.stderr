@@ -1,0 +1,1 @@
+tests/golden/cli/unsupported_escape.lil:2:5: lexical error: unsupported escape sequence

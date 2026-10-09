@@ -1,0 +1,2 @@
+% spec: §6.4 --dump-asm is not implemented yet.
+x = 1;

@@ -1,0 +1,5 @@
+Identifier 2:1 x
+Assign 2:3 =
+Number 2:5 1
+Semicolon 2:6 ;
+End 2:7

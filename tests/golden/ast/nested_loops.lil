@@ -1,0 +1,11 @@
+% spec: §3.5, §3.6, §3.7 nested while and do loops with break and continue.
+i = 0;
+while (i < 10) {
+    j = 0;
+    do {
+        j = j + 1;
+        if (j == 3) continue;
+        if (j > 5) break;
+    } while (j < i);
+    i = i + 1;
+}

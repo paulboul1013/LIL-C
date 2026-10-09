@@ -1,0 +1,1 @@
+tests/golden/cli/options_after_source.lil --dump-tokens

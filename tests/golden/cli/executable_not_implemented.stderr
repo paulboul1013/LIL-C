@@ -1,0 +1,2 @@
+tests/golden/cli/executable_not_implemented.lil:2:1: warning: variable 'x' is assigned but never read
+generating an executable is not implemented yet

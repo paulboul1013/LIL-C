@@ -3,6 +3,8 @@
 
 #include "source.h"
 
+#include <stdint.h>
+
 typedef enum {
     TOKEN_END,
     TOKEN_INVALID,
@@ -55,6 +57,10 @@ typedef enum {
 typedef struct {
     Token_Kind kind;
     Source_Span span;
+    /* TOKEN_NUMBER: the literal's value (§2.7, always 0..INT64_MAX).
+     * TOKEN_CHARACTER: the unsigned byte value (§2.6, 0..255).
+     * 0 for every other kind. */
+    int64_t value;
 } Token;
 
 const char* token_kind_name(Token_Kind kind);

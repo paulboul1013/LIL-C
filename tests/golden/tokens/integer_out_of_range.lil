@@ -1,0 +1,2 @@
+% spec: §2.7.3 INT64_MAX + 1 is out of range.
+x = 9223372036854775808;

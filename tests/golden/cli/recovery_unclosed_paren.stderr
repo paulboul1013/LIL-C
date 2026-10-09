@@ -1,0 +1,7 @@
+tests/golden/cli/recovery_unclosed_paren.lil:2:4: syntax error: expected ')' after arguments
+tests/golden/cli/recovery_unclosed_paren.lil:3:7: syntax error: expected ')' after expression
+tests/golden/cli/recovery_unclosed_paren.lil:4:6: syntax error: expected ')' after condition
+tests/golden/cli/recovery_unclosed_paren.lil:5:4: syntax error: expected ')' after arguments
+tests/golden/cli/recovery_unclosed_paren.lil:6:4: syntax error: expected ')' after arguments
+tests/golden/cli/recovery_unclosed_paren.lil:6:11: syntax error: expected expression
+tests/golden/cli/recovery_unclosed_paren.lil:6:19: syntax error: expected expression

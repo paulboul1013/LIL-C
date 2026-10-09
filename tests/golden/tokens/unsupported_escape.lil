@@ -1,0 +1,2 @@
+% spec: §2.6 only \0 \n \r \t \\ \' are escape sequences.
+x = '\x41';

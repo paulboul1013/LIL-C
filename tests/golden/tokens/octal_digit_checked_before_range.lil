@@ -1,0 +1,2 @@
+% spec: §2.7.2 the octal digit check comes before the range check.
+09999999999999999999999999999

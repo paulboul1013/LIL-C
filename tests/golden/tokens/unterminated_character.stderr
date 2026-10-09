@@ -1,0 +1,1 @@
+tests/golden/tokens/unterminated_character.lil:2:5: lexical error: unterminated character literal

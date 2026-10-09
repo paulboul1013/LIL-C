@@ -1,0 +1,3 @@
+tests/golden/ast/literal_values.lil:2:1: warning: variable 'x' is assigned but never read
+tests/golden/ast/literal_values.lil:3:1: warning: variable 'y' is assigned but never read
+tests/golden/ast/literal_values.lil:4:1: warning: variable 'z' is assigned but never read

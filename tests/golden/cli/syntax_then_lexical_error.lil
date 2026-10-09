@@ -1,0 +1,4 @@
+% spec: §6.3.4 syntax errors before a lexical error are kept; it stops parsing.
+a = ;
+b = @;
+c = ;

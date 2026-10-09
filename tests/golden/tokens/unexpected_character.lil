@@ -1,0 +1,2 @@
+% spec: §2.8 an unlisted character is a lexical error; earlier tokens are printed.
+a = b # c;

@@ -1,0 +1,4 @@
+% spec: §6.4.3 literals print their values; octal and character literals.
+x = 010;
+y = 0777 + 9223372036854775807;
+z = 'a' + '\0';

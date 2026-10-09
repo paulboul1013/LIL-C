@@ -1,0 +1,2 @@
+% spec: §6.4 source errors are reported before "not implemented".
+x = 08;

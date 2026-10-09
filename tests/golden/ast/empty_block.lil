@@ -1,0 +1,5 @@
+% spec: §3.3 empty blocks are valid statements and bodies.
+{}
+{ { } }
+while (0) {}
+if (1) {} else {}

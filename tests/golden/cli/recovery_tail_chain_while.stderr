@@ -1,0 +1,2 @@
+tests/golden/cli/recovery_tail_chain_while.lil:2:11: syntax error: expected expression
+tests/golden/cli/recovery_tail_chain_while.lil:3:3846: syntax error: nesting too deep

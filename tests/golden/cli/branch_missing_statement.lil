@@ -1,0 +1,6 @@
+% spec: §3.4 a branch or loop body starting with 'else', '}' or end of file is a missing statement.
+if (x) else y;
+if (x) a; else }
+while (x) }
+do }
+if (x)

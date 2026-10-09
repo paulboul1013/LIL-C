@@ -1,0 +1,2 @@
+tests/golden/cli/recovery_tail_unrelated_depth.lil:2:260: syntax error: nesting too deep
+tests/golden/cli/recovery_tail_unrelated_depth.lil:3:262: syntax error: nesting too deep

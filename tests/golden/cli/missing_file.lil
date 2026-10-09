@@ -1,0 +1,2 @@
+% spec: §6.4 an unreadable source file is reported.
+% Run on a path that does not exist (see missing_file.cmdline).

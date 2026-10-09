@@ -1,0 +1,2 @@
+% spec: §2.6 a newline before the closing quote leaves the literal unterminated.
+x = 'a

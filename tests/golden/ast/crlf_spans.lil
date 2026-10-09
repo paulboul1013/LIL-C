@@ -1,0 +1,6 @@
+% spec: §2.1, §6.4.3 CRLF line endings: lines advance at each LF, CR counts as one column and is inside the spans that cross it.
+x = 1;
+if (x)
+    y = x + 2;
+else
+    putc(65);

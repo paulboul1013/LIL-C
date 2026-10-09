@@ -1,0 +1,2 @@
+tests/golden/cli/recovery_tail_chain_block.lil:2:12: syntax error: expected ';' after expression
+tests/golden/cli/recovery_tail_chain_block.lil:3:3831: syntax error: nesting too deep

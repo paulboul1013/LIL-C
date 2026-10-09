@@ -1,0 +1,8 @@
+RightParen 2:1 )
+Assign 2:3 =
+Assign 2:5 =
+If 2:7 if
+Semicolon 2:10 ;
+Else 2:12 else
+LeftParen 2:17 (
+End 3:1

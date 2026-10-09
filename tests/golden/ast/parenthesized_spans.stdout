@@ -1,0 +1,8 @@
+(program @1:1+93
+  (expr @2:1+18
+    (assign y #0 @2:1+17
+      (binary * @2:5+13
+        (binary + @2:5+9
+          (name a #1 @2:7+1)
+          (name b #2 @2:11+1))
+        (name c #3 @2:17+1)))))

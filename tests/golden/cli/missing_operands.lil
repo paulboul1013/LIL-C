@@ -1,0 +1,18 @@
+% spec: §4.1 every operator level needs its right operand; recovery reports each.
+a = ;
+a || ;
+a && ;
+a | ;
+a & ;
+a == ;
+a < ;
+a + ;
+a * ;
+- ;
+~ ;
+a ~= ;
+a <= ;
+a > ;
+a >= ;
+a - ;
+a / ;

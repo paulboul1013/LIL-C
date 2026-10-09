@@ -1,0 +1,1 @@
+tests/golden/cli/break_missing_semicolon.lil:2:19: syntax error: expected ';' after 'break'

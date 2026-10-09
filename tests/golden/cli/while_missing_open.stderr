@@ -1,0 +1,1 @@
+tests/golden/cli/while_missing_open.lil:2:7: syntax error: expected '(' after 'while'

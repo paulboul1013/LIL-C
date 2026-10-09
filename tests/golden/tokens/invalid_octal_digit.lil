@@ -1,0 +1,2 @@
+% spec: §2.7.2 '8' and '9' are not octal digits; earlier tokens are still printed.
+x = 0779;

@@ -1,0 +1,1 @@
+tests/golden/cli/do_missing_while.lil:2:11: syntax error: expected 'while' after 'do' body

@@ -1,0 +1,2 @@
+tests/golden/cli/recovery_chain_restarts_depth.lil:2:1523: syntax error: expected expression
+tests/golden/cli/recovery_chain_restarts_depth.lil:2:5373: syntax error: nesting too deep

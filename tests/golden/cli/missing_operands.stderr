@@ -1,0 +1,17 @@
+tests/golden/cli/missing_operands.lil:2:5: syntax error: expected expression
+tests/golden/cli/missing_operands.lil:3:6: syntax error: expected expression
+tests/golden/cli/missing_operands.lil:4:6: syntax error: expected expression
+tests/golden/cli/missing_operands.lil:5:5: syntax error: expected expression
+tests/golden/cli/missing_operands.lil:6:5: syntax error: expected expression
+tests/golden/cli/missing_operands.lil:7:6: syntax error: expected expression
+tests/golden/cli/missing_operands.lil:8:5: syntax error: expected expression
+tests/golden/cli/missing_operands.lil:9:5: syntax error: expected expression
+tests/golden/cli/missing_operands.lil:10:5: syntax error: expected expression
+tests/golden/cli/missing_operands.lil:11:3: syntax error: expected expression
+tests/golden/cli/missing_operands.lil:12:3: syntax error: expected expression
+tests/golden/cli/missing_operands.lil:13:6: syntax error: expected expression
+tests/golden/cli/missing_operands.lil:14:6: syntax error: expected expression
+tests/golden/cli/missing_operands.lil:15:5: syntax error: expected expression
+tests/golden/cli/missing_operands.lil:16:6: syntax error: expected expression
+tests/golden/cli/missing_operands.lil:17:5: syntax error: expected expression
+tests/golden/cli/missing_operands.lil:18:5: syntax error: expected expression

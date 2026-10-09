@@ -1,0 +1,1 @@
+tests/golden/ast/crlf_spans.lil:4:5: warning: variable 'y' is assigned but never read

@@ -43,3 +43,18 @@ const char *source_text_at(const Source *source, Source_Span span) {
 
     return source->text + span.offset;
 }
+
+Source_Span source_end_span(const Source *source) {
+    Source_Span span = {source->length, 0, 1, 1};
+
+    for (size_t i = 0; i < source->length; ++i) {
+        if (source->text[i] == '\n') {
+            ++span.line;
+            span.column = 1;
+        } else {
+            ++span.column;
+        }
+    }
+
+    return span;
+}

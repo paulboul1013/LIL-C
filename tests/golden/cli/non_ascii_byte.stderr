@@ -1,0 +1,1 @@
+tests/golden/cli/non_ascii_byte.lil:2:1: lexical error: unexpected character '\xc3'

@@ -1,0 +1,2 @@
+tests/golden/cli/recovery_paren_across_block.lil:2:4: syntax error: expected ')' after arguments
+tests/golden/cli/recovery_paren_across_block.lil:3:4: syntax error: expected ')' after arguments

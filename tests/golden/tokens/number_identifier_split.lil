@@ -1,0 +1,2 @@
+% spec: §2.3 a number followed by letters or '.' is two tokens.
+123abc 123.4 0x10 010_8 7.loop 1e5

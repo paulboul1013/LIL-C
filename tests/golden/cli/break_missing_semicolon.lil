@@ -1,0 +1,2 @@
+% spec: §3.7 break must be followed by ;.
+while (1) { break }

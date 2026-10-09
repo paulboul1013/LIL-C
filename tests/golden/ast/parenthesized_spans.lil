@@ -1,0 +1,2 @@
+% spec: §6.4.3 a parenthesized expression span includes the parentheses.
+y = ((a + b)) * c;

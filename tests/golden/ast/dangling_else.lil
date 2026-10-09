@@ -1,0 +1,5 @@
+% spec: §3.4 dangling else binds to the nearest unmatched if.
+if (a)
+    if (b) x = 1;
+    else x = 2;
+if (a) { if (b) x = 3; } else x = 4;

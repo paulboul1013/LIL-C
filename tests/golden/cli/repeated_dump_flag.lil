@@ -1,0 +1,2 @@
+% spec: §6.4 a repeated --dump-* option is the same as one; -O is accepted.
+x = 1;

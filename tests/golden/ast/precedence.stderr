@@ -1,0 +1,8 @@
+tests/golden/ast/precedence.lil:2:1: warning: statement has no effect
+tests/golden/ast/precedence.lil:4:1: warning: statement has no effect
+tests/golden/ast/precedence.lil:5:1: warning: statement has no effect
+tests/golden/ast/precedence.lil:6:1: warning: statement has no effect
+tests/golden/ast/precedence.lil:7:1: warning: statement has no effect
+tests/golden/ast/precedence.lil:8:1: warning: statement has no effect
+tests/golden/ast/precedence.lil:9:1: warning: variable 'x' is assigned but never read
+tests/golden/ast/precedence.lil:10:1: warning: variable 'r' is assigned but never read

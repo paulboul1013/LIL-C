@@ -1,0 +1,5 @@
+% spec: §6.3.4 three independent errors are all reported, no cascade.
+x = 1 +;
+if (y) { z = ; }
+while (a b) c = 1;
+w = 2;

@@ -1,0 +1,2 @@
+% spec: §6.4 --dump-tokens runs only the lexer, so syntax errors are not reported.
+) = = if ; else (

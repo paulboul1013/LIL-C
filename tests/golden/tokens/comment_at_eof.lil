@@ -1,0 +1,2 @@
+% spec: §2.2 a comment at end of file without a newline.
+x = 1; % trailing comment

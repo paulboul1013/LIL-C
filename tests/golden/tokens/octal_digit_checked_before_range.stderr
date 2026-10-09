@@ -1,0 +1,1 @@
+tests/golden/tokens/octal_digit_checked_before_range.lil:2:1: lexical error: invalid digit '9' in octal literal

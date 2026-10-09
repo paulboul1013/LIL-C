@@ -1,0 +1,1 @@
+tests/golden/cli/lexical_error.lil:3:1: lexical error: unexpected character '@'

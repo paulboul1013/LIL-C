@@ -1,0 +1,1 @@
+--dump-tokens tests/golden/cli/no_such_file.lil

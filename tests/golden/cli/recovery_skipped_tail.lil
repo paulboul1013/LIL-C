@@ -1,0 +1,6 @@
+% spec: §6.3.4 step 3 a tail already skipped in step 2 is not skipped again: the later loop is a new statement and a later extra else is reported.
+do a b while (x); while (y) z = 1;
+do x = x + 1 while (x < 10); while (y) { z = 1; }
+do a b while (x); while (y) z = ;
+if (x) a b else c; else d;
+ok = 1;

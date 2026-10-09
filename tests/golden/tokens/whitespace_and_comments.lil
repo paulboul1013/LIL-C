@@ -1,0 +1,5 @@
+% spec: §2.1 CR, tab and LF are whitespace; columns count bytes.
+	x	=1;
+% comment
+  y %c
+;

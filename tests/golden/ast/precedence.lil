@@ -1,0 +1,10 @@
+% spec: §4.2 precedence and associativity (C-like).
+a || b && c;
+a = b = c;
+-a * b;
+a < b == c;
+a & b == c;
+a | b & c;
+a - b - c;
+x = ~-y + 2 * (3 - z) / 4;
+r = a < b || c >= d && e ~= f;

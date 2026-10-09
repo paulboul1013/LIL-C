@@ -1,0 +1,1 @@
+tests/golden/tokens/octal_out_of_range.lil:2:5: lexical error: integer literal out of range

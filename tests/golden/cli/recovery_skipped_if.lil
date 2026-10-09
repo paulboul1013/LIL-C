@@ -1,0 +1,7 @@
+% spec: §6.3.4 step 2 an 'if' or 'do' skipped while recovering is abandoned too: its 'else' or 'while (...) ;' tail is skipped, not reported.
+while (x +) if (y) a; else b;
+if (x +) if (y) a; else b; else c;
+if (x) a b; else if (c) d; else e;
+while (x +) do a; while (b);
+while (x +) if (y) a; else b; else c;
+ok = 1;

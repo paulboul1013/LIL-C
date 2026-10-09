@@ -1,0 +1,23 @@
+If 2:1 IF
+If 2:4 If
+If 2:7 iF
+Else 2:10 ELSE
+Else 2:15 Else
+While 2:20 WHILE
+While 2:26 wHiLe
+Do 2:32 DO
+Do 2:35 Do
+Break 2:38 BREAK
+Break 2:44 Break
+Continue 2:50 CONTINUE
+Continue 2:59 CoNtInUe
+Identifier 3:1 ifx
+Identifier 3:5 if.loop
+Identifier 3:13 .if
+Identifier 3:17 _if
+Identifier 3:21 if_
+Identifier 3:25 elsewhile
+Identifier 3:35 doo
+Identifier 3:39 putc
+Identifier 3:44 PUTC
+End 4:1

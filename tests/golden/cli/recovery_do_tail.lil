@@ -1,0 +1,7 @@
+% spec: §6.3.4 a do statement whose body failed: its 'while (...) ;' tail is skipped, not parsed as a while statement.
+do x = ; while (y);
+do x = ; while (y)
+z = 1;
+{ do x = ; while (y) }
+if (a) do x = ; while (b); else c;
+ok = 1;

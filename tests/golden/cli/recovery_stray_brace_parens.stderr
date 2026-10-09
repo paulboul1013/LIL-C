@@ -1,0 +1,12 @@
+tests/golden/cli/recovery_stray_brace_parens.lil:2:4: syntax error: expected ')' after arguments
+tests/golden/cli/recovery_stray_brace_parens.lil:2:6: syntax error: unexpected '}'
+tests/golden/cli/recovery_stray_brace_parens.lil:2:9: syntax error: expected ';' after expression
+tests/golden/cli/recovery_stray_brace_parens.lil:2:16: syntax error: expected expression
+tests/golden/cli/recovery_stray_brace_parens.lil:3:4: syntax error: expected ')' after arguments
+tests/golden/cli/recovery_stray_brace_parens.lil:3:6: syntax error: unexpected '}'
+tests/golden/cli/recovery_stray_brace_parens.lil:3:8: syntax error: expected expression
+tests/golden/cli/recovery_stray_brace_parens.lil:4:4: syntax error: expected ')' after arguments
+tests/golden/cli/recovery_stray_brace_parens.lil:4:11: syntax error: expected ';' after expression
+tests/golden/cli/recovery_stray_brace_parens.lil:4:14: syntax error: unexpected '}'
+tests/golden/cli/recovery_stray_brace_parens.lil:4:16: syntax error: expected expression
+tests/golden/cli/recovery_stray_brace_parens.lil:4:33: syntax error: expected expression
