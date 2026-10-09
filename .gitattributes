@@ -1,0 +1,5 @@
+# Keep the CRLF line endings this fixture tests (docs/spec.md §2.1).
+tests/golden/ast/crlf_spans.lil -text
+# Keep the CRLF line endings (and the raw bytes) this IR fixture tests (§8.3).
+tests/golden/ir/roundtrip_free_spacing.ir -text
+tests/golden/ir/parse_unexpected_byte.ir -text

@@ -1,0 +1,14 @@
+/main
+/lilc
+/build/
+/tests/test_lil
+/tests/test_sema
+/tests/test_framework_selftest
+*.gcov
+*.gcda
+*.gcno
+/fuzz/corpus/
+/tests/test_ir
+/fuzz/corpus-ir/
+/tests/test_ir_opt
+__pycache__/

@@ -1,0 +1,50 @@
+name: CI
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install toolchain
+        run: |
+          sudo apt-get update
+          # libclang-rt-18-dev provides the libFuzzer and sanitizer runtimes;
+          # it is only a Recommends of clang-18, so install it explicitly.
+          sudo apt-get install -y --no-install-recommends \
+            gcc make python3 clang-18 libclang-rt-18-dev
+
+      - name: Unit and golden tests
+        run: make test
+
+      - name: Differential test (oracle vs -O0 vs -O1, 300 programs)
+        run: make difftest
+
+      - name: Sanitizers (ASan + UBSan, unit and golden tests)
+        run: make sanitize
+
+      - name: Coverage
+        run: make coverage
+
+      - name: Fuzz the front end (60 seconds)
+        run: timeout 300 make fuzz-run FUZZ_TARGET=frontend FUZZ_TIME=60 FUZZ_CC=clang-18
+
+      - name: Fuzz the IR text path (60 seconds)
+        run: timeout 300 make fuzz-run FUZZ_TARGET=ir FUZZ_TIME=60 FUZZ_CC=clang-18
+
+      - name: Upload fuzz crashes
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: fuzz-artifacts
+          path: |
+            build/fuzz/crash-*
+            build/fuzz/leak-*
+            build/fuzz/timeout-*
+            build/fuzz/oom-*
+            build/fuzz/ir-*
+          if-no-files-found: ignore
