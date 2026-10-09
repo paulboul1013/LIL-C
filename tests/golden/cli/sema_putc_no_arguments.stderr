@@ -1,0 +1,1 @@
+tests/golden/cli/sema_putc_no_arguments.lil:2:1: semantic error: 'putc' expects 1 argument, got 0

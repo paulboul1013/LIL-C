@@ -1,0 +1,6 @@
+% spec: §5.2 names are case-insensitive: X and x are the same symbol;
+% §2.5 IF and If are still keywords.
+X = 1;
+x = X + x;
+IF (x) r0 = x;
+If (R0) Putc(r0); ELSE putc(X);

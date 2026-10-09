@@ -1,0 +1,2 @@
+tests/golden/cli/sema_putc_as_value.lil:2:6: semantic error: 'putc' is a builtin function and cannot be used as a variable
+tests/golden/cli/sema_putc_as_value.lil:3:6: semantic error: 'putc' is a builtin function and cannot be used as a variable

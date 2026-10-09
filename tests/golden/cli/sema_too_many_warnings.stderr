@@ -1,0 +1,20 @@
+tests/golden/cli/sema_too_many_warnings.lil:3:1: warning: variable 'v1' is assigned but never read
+tests/golden/cli/sema_too_many_warnings.lil:3:9: warning: statement has no effect
+tests/golden/cli/sema_too_many_warnings.lil:4:1: warning: variable 'v2' is assigned but never read
+tests/golden/cli/sema_too_many_warnings.lil:4:9: warning: statement has no effect
+tests/golden/cli/sema_too_many_warnings.lil:5:1: warning: variable 'v3' is assigned but never read
+tests/golden/cli/sema_too_many_warnings.lil:5:9: warning: statement has no effect
+tests/golden/cli/sema_too_many_warnings.lil:6:1: warning: variable 'v4' is assigned but never read
+tests/golden/cli/sema_too_many_warnings.lil:6:9: warning: statement has no effect
+tests/golden/cli/sema_too_many_warnings.lil:7:1: warning: variable 'v5' is assigned but never read
+tests/golden/cli/sema_too_many_warnings.lil:7:9: warning: statement has no effect
+tests/golden/cli/sema_too_many_warnings.lil:8:1: warning: variable 'v6' is assigned but never read
+tests/golden/cli/sema_too_many_warnings.lil:8:9: warning: statement has no effect
+tests/golden/cli/sema_too_many_warnings.lil:9:1: warning: variable 'v7' is assigned but never read
+tests/golden/cli/sema_too_many_warnings.lil:9:9: warning: statement has no effect
+tests/golden/cli/sema_too_many_warnings.lil:10:1: warning: variable 'v8' is assigned but never read
+tests/golden/cli/sema_too_many_warnings.lil:10:9: warning: statement has no effect
+tests/golden/cli/sema_too_many_warnings.lil:11:1: warning: variable 'v9' is assigned but never read
+tests/golden/cli/sema_too_many_warnings.lil:11:9: warning: statement has no effect
+tests/golden/cli/sema_too_many_warnings.lil:12:1: warning: variable 'v10' is assigned but never read
+tests/golden/cli/sema_too_many_warnings.lil:12:10: warning: statement has no effect

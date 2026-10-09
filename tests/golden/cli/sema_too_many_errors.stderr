@@ -1,0 +1,21 @@
+tests/golden/cli/sema_too_many_errors.lil:4:1: warning: statement has no effect
+tests/golden/cli/sema_too_many_errors.lil:5:1: semantic error: 'break' outside of a loop
+tests/golden/cli/sema_too_many_errors.lil:5:8: semantic error: unknown function 'f1'
+tests/golden/cli/sema_too_many_errors.lil:6:1: semantic error: 'break' outside of a loop
+tests/golden/cli/sema_too_many_errors.lil:6:8: semantic error: unknown function 'f2'
+tests/golden/cli/sema_too_many_errors.lil:7:1: semantic error: 'break' outside of a loop
+tests/golden/cli/sema_too_many_errors.lil:7:8: semantic error: unknown function 'f3'
+tests/golden/cli/sema_too_many_errors.lil:8:1: semantic error: 'break' outside of a loop
+tests/golden/cli/sema_too_many_errors.lil:8:8: semantic error: unknown function 'f4'
+tests/golden/cli/sema_too_many_errors.lil:9:1: semantic error: 'break' outside of a loop
+tests/golden/cli/sema_too_many_errors.lil:9:8: semantic error: unknown function 'f5'
+tests/golden/cli/sema_too_many_errors.lil:10:1: semantic error: 'break' outside of a loop
+tests/golden/cli/sema_too_many_errors.lil:10:8: semantic error: unknown function 'f6'
+tests/golden/cli/sema_too_many_errors.lil:11:1: semantic error: 'break' outside of a loop
+tests/golden/cli/sema_too_many_errors.lil:11:8: semantic error: unknown function 'f7'
+tests/golden/cli/sema_too_many_errors.lil:12:1: semantic error: 'break' outside of a loop
+tests/golden/cli/sema_too_many_errors.lil:12:8: semantic error: unknown function 'f8'
+tests/golden/cli/sema_too_many_errors.lil:13:1: semantic error: 'break' outside of a loop
+tests/golden/cli/sema_too_many_errors.lil:13:8: semantic error: unknown function 'f9'
+tests/golden/cli/sema_too_many_errors.lil:14:1: semantic error: 'break' outside of a loop
+tests/golden/cli/sema_too_many_errors.lil:14:8: semantic error: unknown function 'f10'

@@ -1,0 +1,1 @@
+tests/golden/cli/sema_continue_outside_loop.lil:3:1: semantic error: 'continue' outside of a loop

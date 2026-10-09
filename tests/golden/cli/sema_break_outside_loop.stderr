@@ -1,0 +1,1 @@
+tests/golden/cli/sema_break_outside_loop.lil:4:5: semantic error: 'break' outside of a loop

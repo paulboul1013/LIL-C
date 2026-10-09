@@ -1,0 +1,2 @@
+% spec: §4.4, §5.4 assigning to the builtin putc is a semantic error.
+x = Putc = 'a';

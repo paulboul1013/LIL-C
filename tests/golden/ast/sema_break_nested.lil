@@ -1,0 +1,10 @@
+% spec: §3.7 break and continue may appear at any depth of if and block
+% inside a loop.
+while (r0) {
+    if (r0 < 3) {
+        if (r0 == 1) break;
+        { { continue; } }
+    }
+    r0 = r0 - 1;
+}
+do { if (r0) break; } while (1);

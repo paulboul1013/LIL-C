@@ -1,0 +1,2 @@
+tests/golden/ast/sema_assigned_never_read.lil:3:1: warning: variable 'Tmp' is assigned but never read
+tests/golden/ast/sema_assigned_never_read.lil:9:1: warning: variable 'never' is assigned but never read

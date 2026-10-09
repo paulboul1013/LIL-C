@@ -1,0 +1,6 @@
+% spec: §6.1, §6.2 errors and warnings are reported together in source
+% order; errors make the exit status 1.
+unused = 1;
+r0 - 1;
+break;
+putc(1, 2);

@@ -1,0 +1,3 @@
+tests/golden/ast/sema_no_effect.lil:4:5: warning: statement has no effect
+tests/golden/ast/sema_no_effect.lil:6:1: warning: statement has no effect
+tests/golden/ast/sema_no_effect.lil:7:1: warning: statement has no effect

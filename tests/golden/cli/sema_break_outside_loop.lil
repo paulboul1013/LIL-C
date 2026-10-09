@@ -1,0 +1,5 @@
+% spec: §3.7 'break' outside of a loop is a semantic error, even inside
+% an if or a block.
+if (x) {
+    break;
+}

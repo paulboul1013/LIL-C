@@ -1,0 +1,22 @@
+(program @1:1+203
+  (expr @3:1+8
+    (assign Tmp #0 @3:1+7
+      (int 1 @3:7+1)))
+  (expr @4:1+8
+    (assign tmp #0 @4:1+7
+      (int 2 @4:7+1)))
+  (expr @5:1+7
+    (assign r0 #1 @5:1+6
+      (int 3 @5:6+1)))
+  (expr @6:1+7
+    (assign R0 #1 @6:1+6
+      (int 4 @6:6+1)))
+  (expr @7:1+9
+    (assign used #2 @7:1+8
+      (int 5 @7:8+1)))
+  (expr @8:1+10
+    (assign r0 #1 @8:1+9
+      (name used #2 @8:6+4)))
+  (expr @9:1+23
+    (assign never #3 @9:1+22
+      (name never_assigned #4 @9:9+14))))

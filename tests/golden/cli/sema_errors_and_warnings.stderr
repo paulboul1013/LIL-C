@@ -1,0 +1,4 @@
+tests/golden/cli/sema_errors_and_warnings.lil:3:1: warning: variable 'unused' is assigned but never read
+tests/golden/cli/sema_errors_and_warnings.lil:4:1: warning: statement has no effect
+tests/golden/cli/sema_errors_and_warnings.lil:5:1: semantic error: 'break' outside of a loop
+tests/golden/cli/sema_errors_and_warnings.lil:6:1: semantic error: 'putc' expects 1 argument, got 2

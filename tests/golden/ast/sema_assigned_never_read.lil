@@ -1,0 +1,9 @@
+% spec: §6.2 variables that are assigned but never read; r0 is read by
+% the program's exit (§5.5) and is never reported.
+Tmp = 1;
+tmp = 2;
+r0 = 3;
+R0 = 4;
+used = 5;
+r0 = used;
+never = never_assigned;

@@ -1,0 +1,2 @@
+% spec: §4.10 putc expects exactly one argument.
+putc();

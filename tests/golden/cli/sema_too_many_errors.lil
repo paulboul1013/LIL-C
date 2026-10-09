@@ -1,0 +1,16 @@
+% spec: §6.1 at most 20 semantic errors are reported, in source order;
+% analysis then stops, so no "never read" warning is given for x.
+x = 1;
+1;
+break; f1();
+break; f2();
+break; f3();
+break; f4();
+break; f5();
+break; f6();
+break; f7();
+break; f8();
+break; f9();
+break; f10();
+break; f11();
+break; f12();
