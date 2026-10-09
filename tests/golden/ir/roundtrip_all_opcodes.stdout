@@ -1,0 +1,32 @@
+global @x
+global @r0.tmp
+
+entry:
+  %0 = const -9223372036854775808
+  %1 = const 9223372036854775807
+  %2 = copy %0
+  %3 = add %0, %1
+  %4 = sub %0, %1
+  %5 = mul %0, %1
+  %6 = div %1, %1
+  %7 = and %0, %1
+  %8 = or %0, %1
+  %9 = neg %0
+  %10 = not %1
+  %11 = eq %0, %1
+  %12 = ne %0, %1
+  %13 = lt %0, %1
+  %14 = le %0, %1
+  %15 = gt %0, %1
+  %16 = ge %0, %1
+  store @x, %16
+  %17 = load @x
+  putc %17
+  br %17, exit, .next_1
+
+exit:
+  jmp .next_1
+
+.next_1:
+  %18 = load @r0.tmp
+  exit %18

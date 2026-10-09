@@ -1,0 +1,3 @@
+; spec: §8.3 const takes an integer.
+entry:
+  %0 = const %1

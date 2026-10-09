@@ -1,0 +1,1 @@
+tests/golden/interp/opt_o1_trap_kept.lil:3:1: warning: variable 'x' is assigned but never read

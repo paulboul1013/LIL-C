@@ -1,0 +1,35 @@
+global @x
+
+entry:
+  %0 = load @x
+  %1 = const 0
+  %2 = const 1
+  %3 = const -1
+  %4 = copy %0
+  %5 = copy %0
+  %6 = copy %0
+  %7 = neg %0
+  %8 = const 0
+  %9 = const 0
+  %10 = copy %0
+  %11 = neg %0
+  %12 = const 0
+  %13 = copy %0
+  %14 = const 0
+  %15 = copy %0
+  %16 = copy %0
+  %17 = copy %0
+  %18 = const -1
+  %19 = copy %0
+  %20 = const 1
+  %21 = const 0
+  %22 = const 0
+  %23 = const 1
+  %24 = const 0
+  %25 = const 1
+  %26 = copy %0
+  %27 = const -1
+  %28 = const 0
+  %29 = neg %0
+  %30 = copy %0
+  exit %4

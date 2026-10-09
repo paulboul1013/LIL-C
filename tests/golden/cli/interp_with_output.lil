@@ -1,0 +1,2 @@
+% spec: §6.4.2 -o cannot be combined with --interp.
+x = 1;

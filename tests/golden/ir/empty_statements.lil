@@ -1,0 +1,5 @@
+% spec: §3.2, §3.3 empty statements and blocks produce no instructions.
+;
+{}
+{ ; { } }
+r0 = 1;

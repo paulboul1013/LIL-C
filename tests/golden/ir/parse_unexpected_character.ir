@@ -1,0 +1,3 @@
+; spec: §8.3 a character that starts no token.
+entry:
+  %0 = const 1 # comment

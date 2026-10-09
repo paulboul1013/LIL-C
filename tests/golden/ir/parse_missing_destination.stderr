@@ -1,0 +1,1 @@
+tests/golden/ir/parse_missing_destination.ir:3:3: ir error: 'add' needs a destination register ('%N = add ...')

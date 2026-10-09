@@ -1,0 +1,4 @@
+; spec: §8.4 rule 3: an empty block has no terminator.
+entry:
+  jmp empty
+empty:

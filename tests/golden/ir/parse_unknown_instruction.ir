@@ -1,0 +1,3 @@
+; spec: §8.3 instruction names are the §8.2 opcodes.
+entry:
+  %0 = mod %1, %2

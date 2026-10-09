@@ -1,0 +1,2 @@
+; spec: §8.3 @ must be followed by a name.
+global @

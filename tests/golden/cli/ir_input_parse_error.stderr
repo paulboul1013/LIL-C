@@ -1,0 +1,1 @@
+tests/golden/cli/ir_input_parse_error.ir:3:6: ir error: expected a block name

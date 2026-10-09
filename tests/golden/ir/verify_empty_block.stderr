@@ -1,0 +1,1 @@
+tests/golden/ir/verify_empty_block.ir:4:1: verify error: block 'empty' does not end with a terminator

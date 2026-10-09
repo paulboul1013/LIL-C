@@ -1,0 +1,21 @@
+; spec: §8.7 thread: an entry that only jumps is a forwarding block like
+; any other, so jumps to it (and through hop to it) go to the end of its
+; chain; the entry stays blocks[0] and still starts the program.
+global @g
+
+entry:
+  jmp body
+
+body:
+  %0 = load @g
+  putc %0
+  br %0, hop, out
+
+hop:
+  jmp entry
+
+out:
+  br %0, entry, last
+
+last:
+  exit %0

@@ -1,0 +1,2 @@
+% spec: §4.9 && becomes a branch; the right operand runs only when the left is nonzero.
+r0 = a && b;

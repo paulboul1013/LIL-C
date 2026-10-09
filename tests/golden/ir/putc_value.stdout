@@ -1,0 +1,10 @@
+global @r0
+
+entry:
+  %0 = const 65
+  putc %0
+  %1 = const 1
+  %2 = add %0, %1
+  store @r0, %2
+  %3 = load @r0
+  exit %3

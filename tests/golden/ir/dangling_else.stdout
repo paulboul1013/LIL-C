@@ -1,0 +1,28 @@
+global @a
+global @b
+global @r0
+
+entry:
+  %0 = load @a
+  br %0, if.then.1, if.end.1
+
+if.then.1:
+  %1 = load @b
+  br %1, if.then.2, if.else.2
+
+if.then.2:
+  %2 = const 1
+  store @r0, %2
+  jmp if.end.2
+
+if.else.2:
+  %3 = const 2
+  store @r0, %3
+  jmp if.end.2
+
+if.end.2:
+  jmp if.end.1
+
+if.end.1:
+  %4 = load @r0
+  exit %4

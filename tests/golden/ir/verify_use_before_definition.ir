@@ -1,0 +1,5 @@
+; spec: §8.4 rule 4: a use before the definition in the same block.
+entry:
+  putc %0
+  %0 = const 1
+  exit %0

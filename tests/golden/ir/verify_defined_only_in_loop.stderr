@@ -1,0 +1,1 @@
+tests/golden/ir/verify_defined_only_in_loop.ir:5:3: verify error: virtual register %0 may be used before it is defined

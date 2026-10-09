@@ -1,0 +1,31 @@
+; spec: §5.7, §8.7 dce: unused pure instructions (also loads and divs that
+; cannot trap) and self copies go; stores, putc, terminators and divs that
+; may trap stay, even when their result is unused. A definition used in
+; another block (even an unreachable one) stays.
+global @g
+
+entry:
+  %0 = load @g
+  %1 = const 2
+  %2 = add %0, %1
+  %3 = mul %2, %2
+  %4 = div %0, %1
+  %5 = div %1, %0
+  %6 = const -1
+  %7 = div %0, %6
+  %8 = const 5
+  %9 = div %8, %6
+  %0 = copy %0
+  store @g, %0
+  putc %1
+  %10 = const 66
+  %11 = const 77
+  jmp next
+
+next:
+  putc %10
+  exit %0
+
+orphan:
+  putc %11
+  jmp next

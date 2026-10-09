@@ -1,0 +1,2 @@
+% spec: §6.4.2 --passes only applies to --dump-ir and --interp.
+x = 1;

@@ -1,0 +1,1 @@
+tests/golden/ir/verify_no_blocks.ir:1:1: verify error: program has no blocks

@@ -1,0 +1,10 @@
+% spec: §3.4 if/else, §4.8 comparison, §5.5 exit status r0 & 0xff.
+% Acceptance program (LIC_C_compiler_plan.md, M4): the larger of two
+% values, after the LIL tutorial. Exit status: 42.
+a = 17;
+b = 42;
+
+if (a > b)
+    r0 = a;
+else
+    r0 = b;

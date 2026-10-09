@@ -1,0 +1,25 @@
+; spec: §8.4, §8.7 unreachable: blocks the entry cannot reach are deleted
+; (orphans, cycles of them, blocks only they reach); the others keep their
+; order and names and jumps are renumbered.
+global @g
+
+entry:
+  %0 = load @g
+  br %0, live, end
+
+dead1:
+  jmp dead2
+
+dead2:
+  jmp dead1
+
+live:
+  putc %0
+  jmp end
+
+dead3:
+  %1 = load @g
+  br %1, dead1, live
+
+end:
+  exit %0

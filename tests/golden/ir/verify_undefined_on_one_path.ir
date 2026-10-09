@@ -1,0 +1,9 @@
+; spec: §8.4 rule 4: %1 is defined on only one path into join.
+entry:
+  %0 = const 1
+  br %0, then, join
+then:
+  %1 = const 2
+  jmp join
+join:
+  exit %1

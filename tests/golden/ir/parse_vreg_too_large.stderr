@@ -1,0 +1,1 @@
+tests/golden/ir/parse_vreg_too_large.ir:3:3: ir error: virtual register number too large (the limit is 16777215)

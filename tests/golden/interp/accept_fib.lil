@@ -1,0 +1,25 @@
+% spec: §3.5 while, §5.1 global variables.
+% Acceptance program: the first 20 Fibonacci numbers F(0)..F(19), one per
+% line, by rotating three variables. Exit status 0.
+a = 0;
+b = 1;
+k = 0;
+
+while (k < 20) {
+    n = a;
+    if (n < 0) putc('-'); else n = -n;
+    p = 1;
+    while (n / p <= -10) p = p * 10;
+    while (p > 0) {
+        d = -(n / p);
+        putc('0' + d);
+        n = n + d * p;
+        p = p / 10;
+    }
+    putc('\n');
+
+    t = a + b;
+    a = b;
+    b = t;
+    k = k + 1;
+}

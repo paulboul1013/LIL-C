@@ -1,0 +1,2 @@
+; spec: §8.3 one item per line.
+entry: jmp entry

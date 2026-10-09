@@ -1,0 +1,42 @@
+% spec: §4.3 left-to-right evaluation keeps 20 values live.
+% Acceptance program: 20 simultaneously live values. v1..v20 hold the
+% squares 1..400 (scaled by k = 1, read at run time); the right-nested
+% sum loads all twenty before the first addition, so a back end must
+% spill. 1^2 + ... + 20^2 = 2870: prints "2870" and a newline; the exit
+% status is 2870 & 0xff = 54.
+k = 1;
+v1 = 1 * 1 * k;
+v2 = 2 * 2 * k;
+v3 = 3 * 3 * k;
+v4 = 4 * 4 * k;
+v5 = 5 * 5 * k;
+v6 = 6 * 6 * k;
+v7 = 7 * 7 * k;
+v8 = 8 * 8 * k;
+v9 = 9 * 9 * k;
+v10 = 10 * 10 * k;
+v11 = 11 * 11 * k;
+v12 = 12 * 12 * k;
+v13 = 13 * 13 * k;
+v14 = 14 * 14 * k;
+v15 = 15 * 15 * k;
+v16 = 16 * 16 * k;
+v17 = 17 * 17 * k;
+v18 = 18 * 18 * k;
+v19 = 19 * 19 * k;
+v20 = 20 * 20 * k;
+s = (v1 + (v2 + (v3 + (v4 + (v5 + (v6 + (v7 + (v8 + (v9 + (v10 + (v11 + (v12 + (v13 + (v14 + (v15 + (v16 + (v17 + (v18 + (v19 + v20)))))))))))))))))));
+
+n = s;
+if (n < 0) putc('-'); else n = -n;
+p = 1;
+while (n / p <= -10) p = p * 10;
+while (p > 0) {
+    d = -(n / p);
+    putc('0' + d);
+    n = n + d * p;
+    p = p / 10;
+}
+putc('\n');
+
+r0 = s;

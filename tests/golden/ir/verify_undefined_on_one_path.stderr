@@ -1,0 +1,1 @@
+tests/golden/ir/verify_undefined_on_one_path.ir:9:3: verify error: virtual register %1 may be used before it is defined

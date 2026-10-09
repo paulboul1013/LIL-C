@@ -1,0 +1,17 @@
+global @g
+
+entry:
+  %0 = const 0
+  jmp x
+
+x:
+  %2 = load @g
+  jmp s
+
+c:
+  %2 = const 7
+  jmp s
+
+s:
+  %3 = copy %2
+  exit %2

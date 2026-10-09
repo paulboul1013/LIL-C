@@ -1,0 +1,1 @@
+tests/golden/interp/example_basic.lil:13:1: warning: variable 'r1' is assigned but never read

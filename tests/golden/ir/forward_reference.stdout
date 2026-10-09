@@ -1,0 +1,6 @@
+entry:
+  %100 = const 5
+  jmp done
+
+done:
+  exit %100

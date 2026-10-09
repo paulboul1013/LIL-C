@@ -1,0 +1,11 @@
+% spec: §3.7 break and continue refer to the innermost loop.
+while (i < 3) {
+    j = 0;
+    do {
+        j = j + 1;
+        if (j == 2) break;
+    } while (j < 5);
+    i = i + 1;
+    if (i == 1) continue;
+}
+r0 = i + j;

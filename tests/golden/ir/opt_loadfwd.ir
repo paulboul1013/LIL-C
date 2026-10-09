@@ -1,0 +1,31 @@
+; spec: §8.1, §8.7 loadfwd: a load of @g after a store to @g (or another
+; load of it) earlier in the chain becomes a copy of the stored (loaded)
+; vreg, until that vreg is redefined or @g is stored again; a store to
+; another global does not matter. The chain goes on into a block whose
+; only incoming edge comes from it (next), not into a block with two
+; (join).
+global @g
+global @h
+
+entry:
+  %0 = const 1
+  store @g, %0
+  %1 = const 2
+  store @h, %1
+  %2 = load @g
+  %3 = load @h
+  %4 = load @h
+  %0 = const 3
+  %5 = load @g
+  store @g, %4
+  %6 = load @g
+  br %6, next, join
+
+next:
+  %7 = load @g
+  putc %7
+  jmp join
+
+join:
+  %8 = load @g
+  exit %8

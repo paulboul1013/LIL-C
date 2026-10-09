@@ -1,0 +1,7 @@
+; spec: §8.4 rule 4: the first iteration reaches the use before the definition.
+entry:
+  jmp loop
+loop:
+  putc %0
+  %0 = const 1
+  jmp loop

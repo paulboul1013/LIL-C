@@ -1,0 +1,4 @@
+% spec: §8.6 --step-limit N stops the interpreter after N instructions:
+% the output so far is kept, a message goes to stderr, the status is 1.
+putc('s');
+while (1) ;

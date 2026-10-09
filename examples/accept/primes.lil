@@ -1,0 +1,38 @@
+% spec: §3.7 break and continue in nested loops.
+% Acceptance program: the 25 primes below 100, one per line, by trial
+% division in nested loops with break and continue. The exit status is
+% the number of primes, 25.
+count = 0;
+n = 1;
+
+while (1) {
+    n = n + 1;
+    if (n >= 100) break;
+
+    is_prime = 1;
+    d = 2;
+    while (d * d <= n) {
+        if (n - n / d * d == 0) {
+            is_prime = 0;
+            break;
+        }
+        d = d + 1;
+    }
+
+    if (is_prime == 0) continue;
+
+    count = count + 1;
+    m = n;
+    if (m < 0) putc('-'); else m = -m;
+    p = 1;
+    while (m / p <= -10) p = p * 10;
+    while (p > 0) {
+        digit = -(m / p);
+        putc('0' + digit);
+        m = m + digit * p;
+        p = p / 10;
+    }
+    putc('\n');
+}
+
+r0 = count;

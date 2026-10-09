@@ -1,0 +1,25 @@
+; spec: §4.6, §5.7, §8.7 simplify must NOT rewrite: x / x and 0 / x (trap
+; when x = 0), x / -1 (traps when x = INT64_MIN), x / 0, 1 - x, x - 1,
+; x + 1, x * 2, x == y, or anything whose operands are both known (fold).
+global @x
+global @y
+
+entry:
+  %0 = load @x
+  %1 = load @y
+  %2 = const 0
+  %3 = const -1
+  %4 = const 1
+  %5 = div %0, %0
+  %6 = div %2, %0
+  %7 = div %0, %3
+  %8 = div %0, %2
+  %9 = sub %4, %0
+  %10 = sub %0, %4
+  %11 = add %0, %4
+  %12 = const 2
+  %13 = mul %0, %12
+  %14 = eq %0, %1
+  %15 = add %2, %2
+  %16 = div %2, %2
+  exit %0

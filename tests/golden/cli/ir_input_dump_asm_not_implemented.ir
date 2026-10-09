@@ -1,0 +1,4 @@
+; spec: §6.4 --dump-asm on IR input is not implemented yet.
+entry:
+  %0 = const 0
+  exit %0

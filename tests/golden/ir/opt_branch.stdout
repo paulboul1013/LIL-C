@@ -1,0 +1,23 @@
+global @g
+
+entry:
+  %0 = const 0
+  jmp b
+
+a:
+  %1 = const 1
+  exit %1
+
+b:
+  %2 = const -5
+  jmp c
+
+c:
+  %3 = load @g
+  jmp d
+
+d:
+  br %3, a, e
+
+e:
+  exit %3

@@ -1,0 +1,1 @@
+--passes=loadfwd,copyprop,fold,simplify,branch

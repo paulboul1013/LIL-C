@@ -1,0 +1,10 @@
+% spec: §4.3 the left operand is evaluated completely before the right;
+% §4.4 an assignment's value is the stored value.
+x = 5;
+x = (x = 1) + x;
+y = 7;
+z = y + (y = 2);
+putc('0' + x);
+putc('0' + z);
+putc('\n');
+r0 = x * 10 + z;

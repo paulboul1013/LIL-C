@@ -1,0 +1,2 @@
+% spec: §4.10 putc writes its argument; the call's value is the argument.
+r0 = putc('A') + 1;

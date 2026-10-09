@@ -1,0 +1,9 @@
+; spec: §8.4 rule 4: only reachable predecessors count; a definition in an
+; unreachable predecessor does not make a use valid.
+entry:
+  jmp join
+dead:
+  %0 = const 1
+  jmp join
+join:
+  exit %0

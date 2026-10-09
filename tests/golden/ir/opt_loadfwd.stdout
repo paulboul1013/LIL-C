@@ -1,0 +1,25 @@
+global @g
+global @h
+
+entry:
+  %0 = const 1
+  store @g, %0
+  %1 = const 2
+  store @h, %1
+  %2 = copy %0
+  %3 = copy %1
+  %4 = copy %1
+  %0 = const 3
+  %5 = load @g
+  store @g, %4
+  %6 = copy %4
+  br %6, next, join
+
+next:
+  %7 = copy %4
+  putc %7
+  jmp join
+
+join:
+  %8 = load @g
+  exit %8

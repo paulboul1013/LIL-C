@@ -1,0 +1,22 @@
+; spec: §8.7 facts never flow out of a block that dies while it is being
+; visited: c is reached only through its own self loop once branch turns
+; entry's br into 'jmp x', and turning c's br into 'jmp s' kills it. s is
+; then entered only from x, where %2 is a load, so %3 stays a copy of %2
+; and is not folded to c's 7.
+global @g
+
+entry:
+  %0 = const 0
+  br %0, c, x
+
+x:
+  %2 = load @g
+  jmp s
+
+c:
+  %2 = const 7
+  br %0, c, s
+
+s:
+  %3 = copy %2
+  exit %3

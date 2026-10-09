@@ -1,0 +1,4 @@
+; spec: §8.4 rule 2: jump targets are existing blocks.
+entry:
+  %0 = const 1
+  br %0, entry, nowhere

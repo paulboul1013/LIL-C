@@ -1,0 +1,1 @@
+tests/golden/ir/parse_expected_vreg.ir:3:8: ir error: expected a virtual register

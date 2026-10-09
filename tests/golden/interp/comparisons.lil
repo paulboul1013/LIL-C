@@ -1,0 +1,11 @@
+% spec: §4.8 signed comparisons give 1 or 0; §4.7 & and |.
+min = -9223372036854775807 - 1;
+putc('0' + (min < 0));
+putc('0' + (min > 1));
+putc('0' + (-1 <= -1));
+putc('0' + (2 >= 3));
+putc('0' + (5 == 5));
+putc('0' + (5 ~= 5));
+putc('0' + (12 & 10));
+putc('0' + (1 | 4));
+putc('\n');

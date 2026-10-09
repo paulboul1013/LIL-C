@@ -1,0 +1,2 @@
+% spec: §6.4.2 --ir-input reads IR, which has no tokens or AST.
+x = 1;

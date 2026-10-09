@@ -1,0 +1,1 @@
+tests/golden/ir/verify_unreachable_predecessor.ir:9:3: verify error: virtual register %0 may be used before it is defined

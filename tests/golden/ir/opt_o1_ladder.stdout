@@ -1,0 +1,20 @@
+global @x
+global @r0
+
+entry:
+  %0 = const 1
+  store @x, %0
+  %1 = const 2
+  store @x, %1
+  %2 = const 3
+  store @x, %2
+  %3 = const 4
+  store @x, %3
+  %4 = const 5
+  store @x, %4
+  %5 = const 6
+  store @x, %5
+  %6 = const 7
+  store @x, %6
+  store @r0, %6
+  exit %6

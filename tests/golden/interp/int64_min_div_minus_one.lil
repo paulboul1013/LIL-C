@@ -1,0 +1,5 @@
+% spec: §4.6 INT64_MIN / -1 traps like division by zero: SIGFPE (136).
+min = -9223372036854775807 - 1;
+putc('x');
+r0 = min / -1;
+putc('y');

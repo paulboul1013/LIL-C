@@ -1,0 +1,28 @@
+% spec: §3.6 do/while, §3.4 if/else.
+% Acceptance program: the Collatz sequence from 27 reaches 1 after 111
+% steps (do/while and if/else). Prints "111" and a newline; the exit
+% status is 111.
+n = 27;
+steps = 0;
+
+do {
+    if (n - n / 2 * 2 == 0)
+        n = n / 2;
+    else
+        n = 3 * n + 1;
+    steps = steps + 1;
+} while (n ~= 1);
+
+m = steps;
+if (m < 0) putc('-'); else m = -m;
+p = 1;
+while (m / p <= -10) p = p * 10;
+while (p > 0) {
+    d = -(m / p);
+    putc('0' + d);
+    m = m + d * p;
+    p = p / 10;
+}
+putc('\n');
+
+r0 = steps;

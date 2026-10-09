@@ -1,0 +1,13 @@
+global @r0
+
+entry:
+  %0 = const 9223372036854775807
+  store @r0, %0
+  %1 = const 8
+  store @r0, %1
+  %2 = const 97
+  store @r0, %2
+  %3 = const 10
+  store @r0, %3
+  %4 = load @r0
+  exit %4

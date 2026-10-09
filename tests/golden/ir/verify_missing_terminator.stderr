@@ -1,0 +1,1 @@
+tests/golden/ir/verify_missing_terminator.ir:2:1: verify error: block 'entry' does not end with a terminator

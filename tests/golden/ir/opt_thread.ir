@@ -1,0 +1,34 @@
+; spec: §8.7 thread: jumps (and both br targets) to a block that only jumps
+; go to the end of the chain; a jump into a non-empty block is not
+; threaded; a chain that ends in a cycle of empty blocks is left alone and
+; the pass terminates.
+global @g
+
+entry:
+  %0 = load @g
+  br %0, hop1, work
+
+hop1:
+  jmp hop2
+
+hop2:
+  jmp work
+
+work:
+  putc %0
+  br %0, hop2, spin
+
+spin:
+  jmp spin_a
+
+spin_a:
+  jmp spin_b
+
+spin_b:
+  jmp spin_a
+
+self:
+  jmp self
+
+end:
+  exit %0

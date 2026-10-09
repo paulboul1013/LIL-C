@@ -1,0 +1,7 @@
+global @r0
+
+entry:
+  %0 = const 7
+  store @r0, %0
+  %1 = load @r0
+  exit %1

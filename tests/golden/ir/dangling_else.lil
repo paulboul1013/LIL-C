@@ -1,0 +1,2 @@
+% spec: §3.4 the else belongs to the inner if.
+if (a) if (b) r0 = 1; else r0 = 2;

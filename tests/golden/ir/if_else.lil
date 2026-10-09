@@ -1,0 +1,2 @@
+% spec: §3.4 if/else; both branches jump to the end block.
+if (x) r0 = 1; else r0 = 2;

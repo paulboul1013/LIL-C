@@ -1,0 +1,12 @@
+% spec: §8.7 -O1 follows a ladder of constant ifs (each join reachable
+% only from the then branch once the else is dead) in one sweep: the
+% whole ladder folds in two rounds, whatever its length, and the result is
+% a fixpoint (-O1 on the dump changes nothing).
+x = 1;
+if (x == 1) x = 2; else putc('E');
+if (x == 2) x = 3; else putc('E');
+if (x == 3) x = 4; else putc('E');
+if (x == 4) x = 5; else putc('E');
+if (x == 5) x = 6; else putc('E');
+if (x == 6) x = 7; else putc('E');
+r0 = x;

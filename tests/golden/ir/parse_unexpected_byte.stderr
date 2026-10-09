@@ -1,0 +1,1 @@
+tests/golden/ir/parse_unexpected_byte.ir:3:3: ir error: unexpected character '\x01'

@@ -1,0 +1,7 @@
+entry:
+  %0 = const 0
+  exit %0
+
+orphan:
+  putc %1
+  exit %1

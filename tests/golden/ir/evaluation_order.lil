@@ -1,0 +1,2 @@
+% spec: §4.3 operands left to right, depth first; §4.4 value before store.
+r0 = (a = 1) * (b = 2) + c / d;

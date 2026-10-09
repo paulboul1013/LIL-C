@@ -1,0 +1,1 @@
+tests/golden/ir/parse_instruction_outside_block.ir:3:1: ir error: instruction outside of a block

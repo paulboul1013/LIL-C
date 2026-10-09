@@ -1,0 +1,3 @@
+% spec: §3.6 do: the body runs first, then the condition.
+do i = i + 1; while (i < 10);
+r0 = i;

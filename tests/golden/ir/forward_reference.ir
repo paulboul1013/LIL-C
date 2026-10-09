@@ -1,0 +1,8 @@
+; spec: §8.3 labels may be used before they are defined; vreg numbers need not
+; be dense (vreg_count is the largest number plus one).
+entry:
+  %100 = const 5
+  jmp done
+
+done:
+  exit %100

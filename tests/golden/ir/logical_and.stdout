@@ -1,0 +1,19 @@
+global @r0
+global @a
+global @b
+
+entry:
+  %0 = load @a
+  %1 = const 0
+  br %0, and.rhs.1, and.end.1
+
+and.rhs.1:
+  %2 = load @b
+  %3 = const 0
+  %1 = ne %2, %3
+  jmp and.end.1
+
+and.end.1:
+  store @r0, %1
+  %4 = load @r0
+  exit %4

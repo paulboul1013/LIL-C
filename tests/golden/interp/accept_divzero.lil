@@ -1,0 +1,8 @@
+% spec: §4.6 division by zero traps, §5.6 SIGFPE (status 136).
+% Acceptance program: division by zero at run time (§4.6, §5.6). Prints
+% "a", then the division traps: the program is killed by SIGFPE (status
+% 136) and the second putc never runs.
+putc('a');
+zero = 0;
+r0 = 1 / zero;
+putc('b');

@@ -1,0 +1,2 @@
+% spec: §6.4.2 --passes names unknown to §8.7 are a command-line error.
+x = 1;

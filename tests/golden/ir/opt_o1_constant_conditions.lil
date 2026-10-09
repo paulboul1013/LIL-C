@@ -1,0 +1,10 @@
+% spec: §8.7 -O1 on LIL source: constant conditions (if (1), if (0),
+% while (0), do ... while (0)), identities (x * 1, x + 0, x - x), a
+% store followed by a load, and dead code after break all disappear.
+x = 5;
+if (1) y = x * 1; else y = 99;
+if (0) putc('n');
+while (0) putc('w');
+do putc('d'); while (0);
+while (x) { putc(x + 0 + 48); break; putc('!'); }
+r0 = y + (x - x);

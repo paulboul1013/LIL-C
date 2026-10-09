@@ -1,0 +1,1 @@
+tests/golden/interp/warnings_on_stderr.lil:2:1: warning: variable 'x' is assigned but never read

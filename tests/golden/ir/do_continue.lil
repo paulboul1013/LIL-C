@@ -1,0 +1,7 @@
+% spec: §3.7 continue in a do loop jumps to the condition.
+do {
+    i = i + 1;
+    if (i < 5) continue;
+    break;
+} while (1);
+r0 = i;

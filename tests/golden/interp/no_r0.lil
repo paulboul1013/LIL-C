@@ -1,0 +1,3 @@
+% spec: §5.5 a program that never mentions r0 exits with 0; §5.1 variables start at 0.
+r1 = 5;
+putc('0' + r1 + x);

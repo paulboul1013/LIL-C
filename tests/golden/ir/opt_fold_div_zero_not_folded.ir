@@ -1,0 +1,8 @@
+; spec: §5.7, §8.7 fold/dce: x / 0 with both operands known is NOT folded,
+; and its unused result does NOT make it removable: it still traps.
+entry:
+  %0 = const 5
+  %1 = const 0
+  %2 = div %0, %1
+  %3 = const 1
+  exit %3

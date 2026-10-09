@@ -1,0 +1,4 @@
+% spec: §4.10 putc writes x & 0xff and its value is x untruncated.
+r0 = putc(256 + 'A') - 256;
+putc(-191);
+putc('\n');

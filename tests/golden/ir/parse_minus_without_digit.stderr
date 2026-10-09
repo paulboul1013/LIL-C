@@ -1,0 +1,1 @@
+tests/golden/ir/parse_minus_without_digit.ir:3:14: ir error: expected a digit after '-'

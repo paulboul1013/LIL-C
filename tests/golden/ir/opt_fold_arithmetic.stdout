@@ -1,0 +1,23 @@
+entry:
+  %0 = const 9223372036854775807
+  %1 = const 1
+  %2 = const -9223372036854775808
+  %3 = const -9223372036854775808
+  %4 = const 9223372036854775807
+  %5 = const 1
+  %6 = const 7
+  %7 = const -2
+  %8 = const -3
+  %9 = const 6
+  %10 = const -1
+  %11 = const -9223372036854775808
+  %12 = const -8
+  %13 = const 1
+  %14 = const 1
+  %15 = const 1
+  %16 = const 0
+  %17 = const 1
+  %18 = const 0
+  %19 = const -3
+  %20 = const 9223372036854775805
+  exit %20

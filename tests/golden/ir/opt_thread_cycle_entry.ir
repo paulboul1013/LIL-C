@@ -1,0 +1,11 @@
+; spec: §8.7 thread/merge/unreachable: an entry that only jumps around a
+; cycle of empty blocks (an infinite loop) stays an infinite loop and the
+; passes terminate.
+entry:
+  jmp a
+
+a:
+  jmp b
+
+b:
+  jmp a

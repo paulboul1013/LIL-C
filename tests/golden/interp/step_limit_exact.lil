@@ -1,0 +1,3 @@
+% spec: §8.6 a program that needs exactly N steps finishes under --step-limit N
+% (entry: const, putc, const, exit = 4 steps).
+putc('k');

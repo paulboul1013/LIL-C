@@ -1,0 +1,21 @@
+global @g
+
+entry:
+  %0 = load @g
+  %1 = const 2
+  %5 = div %1, %0
+  %6 = const -1
+  %7 = div %0, %6
+  store @g, %0
+  putc %1
+  %10 = const 66
+  %11 = const 77
+  jmp next
+
+next:
+  putc %10
+  exit %0
+
+orphan:
+  putc %11
+  jmp next

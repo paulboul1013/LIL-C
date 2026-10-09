@@ -1,0 +1,27 @@
+% spec: §4.5 multiplication wraps modulo 2^64.
+% Acceptance program: factorials with two's-complement wraparound (§4.5).
+% Prints 20! = 2432902008176640000 and 21!, which wraps to
+% -4249290049419214848, one per line; exit status 0.
+f = 1;
+i = 1;
+
+while (i <= 21) {
+    f = f * i;
+
+    if (i >= 20) {
+        % Decimal printing, safe for negative numbers and INT64_MIN.
+        n = f;
+        if (n < 0) putc('-'); else n = -n;
+        p = 1;
+        while (n / p <= -10) p = p * 10;
+        while (p > 0) {
+            d = -(n / p);
+            putc('0' + d);
+            n = n + d * p;
+            p = p / 10;
+        }
+        putc('\n');
+    }
+
+    i = i + 1;
+}

@@ -1,0 +1,1 @@
+tests/golden/ir/parse_duplicate_block.ir:4:1: ir error: duplicate block 'entry'

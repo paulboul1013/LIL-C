@@ -1,0 +1,6 @@
+; spec: §8.6 a div trap in IR input ends the interpreter with SIGFPE (136).
+entry:
+  %0 = const 1
+  %1 = const 0
+  %2 = div %0, %1
+  exit %2

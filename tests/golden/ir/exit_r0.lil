@@ -1,0 +1,2 @@
+% spec: §8.5 the program ends by loading r0 (any case, §5.2) and exiting with it.
+R0 = 7;

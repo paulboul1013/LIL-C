@@ -1,0 +1,12 @@
+global @g
+
+entry:
+  %0 = load @g
+  br %0, live, end
+
+live:
+  putc %0
+  jmp end
+
+end:
+  exit %0

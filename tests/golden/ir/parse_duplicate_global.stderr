@@ -1,0 +1,1 @@
+tests/golden/ir/parse_duplicate_global.ir:4:8: ir error: duplicate global '@x'

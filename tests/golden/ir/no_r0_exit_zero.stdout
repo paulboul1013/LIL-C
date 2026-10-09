@@ -1,0 +1,9 @@
+global @x
+
+entry:
+  %0 = const 1
+  store @x, %0
+  %1 = load @x
+  putc %1
+  %2 = const 0
+  exit %2

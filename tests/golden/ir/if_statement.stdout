@@ -1,0 +1,21 @@
+global @x
+global @r0
+
+entry:
+  %0 = load @x
+  %1 = const 3
+  %2 = lt %0, %1
+  br %2, if.then.1, if.end.1
+
+if.then.1:
+  %3 = const 1
+  store @r0, %3
+  jmp if.end.1
+
+if.end.1:
+  %4 = load @r0
+  %5 = const 1
+  %6 = add %4, %5
+  store @r0, %6
+  %7 = load @r0
+  exit %7

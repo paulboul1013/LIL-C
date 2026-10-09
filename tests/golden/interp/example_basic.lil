@@ -1,0 +1,13 @@
+% Compute a larger value.
+
+r0 = x + 10;
+
+IF (r0 < y) {
+    r0 = y;
+}
+
+while (r0 ~= 0) {
+    r0 = r0 - 1;
+}
+
+r1 = '\n';

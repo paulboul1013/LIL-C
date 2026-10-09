@@ -1,0 +1,15 @@
+; spec: §8.4, §8.7 thread: jumps to the entry are valid IR, so a jump to a
+; block that only jumps to the (non-empty) entry goes straight to the
+; entry; the entry itself stays blocks[0].
+global @g
+
+entry:
+  %0 = load @g
+  putc %0
+  br %0, hop, out
+
+hop:
+  jmp entry
+
+out:
+  exit %0

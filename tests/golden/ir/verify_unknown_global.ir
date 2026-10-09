@@ -1,0 +1,5 @@
+; spec: §8.4 rule 2: load and store refer to declared globals.
+global @x
+entry:
+  %0 = load @y
+  exit %0

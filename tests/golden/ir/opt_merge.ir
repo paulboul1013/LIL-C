@@ -1,0 +1,32 @@
+; spec: §8.7 merge: a block whose only predecessor ends in 'jmp' to it is
+; appended to that predecessor (chains too). Not merged: a block with two
+; predecessors, the entry (even with one jump to it), a self loop.
+global @g
+
+entry:
+  %0 = load @g
+  jmp one
+
+one:
+  putc %0
+  jmp two
+
+two:
+  putc %0
+  br %0, three, four
+
+three:
+  jmp join
+
+four:
+  jmp join
+
+join:
+  putc %0
+  br %0, entry, loop
+
+loop:
+  br %0, loop, last
+
+last:
+  exit %0

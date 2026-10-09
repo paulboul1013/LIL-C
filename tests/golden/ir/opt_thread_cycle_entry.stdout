@@ -1,0 +1,5 @@
+entry:
+  jmp a
+
+a:
+  jmp a

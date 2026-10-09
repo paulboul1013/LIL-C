@@ -1,0 +1,1 @@
+tests/golden/ir/parse_vreg_without_number.ir:3:3: ir error: expected a number after '%'

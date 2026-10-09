@@ -1,0 +1,1 @@
+tests/golden/ir/parse_expected_global.ir:3:13: ir error: expected a global (@name)

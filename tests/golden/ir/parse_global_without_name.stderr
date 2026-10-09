@@ -1,0 +1,1 @@
+tests/golden/ir/parse_global_without_name.ir:2:8: ir error: expected a name after '@'

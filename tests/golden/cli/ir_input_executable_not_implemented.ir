@@ -1,0 +1,5 @@
+; spec: §6.4 IR input is parsed and verified, then an executable is
+; not implemented yet.
+entry:
+  %0 = const 0
+  exit %0

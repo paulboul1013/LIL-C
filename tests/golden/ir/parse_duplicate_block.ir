@@ -1,0 +1,5 @@
+; spec: §8.3 block names are unique.
+entry:
+  jmp entry
+entry:
+  jmp entry

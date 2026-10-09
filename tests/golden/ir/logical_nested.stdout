@@ -1,0 +1,52 @@
+global @r0
+global @a
+global @b
+global @c
+
+entry:
+  %0 = load @a
+  %1 = const 1
+  br %0, or.end.1, or.rhs.1
+
+or.rhs.1:
+  %2 = load @b
+  %3 = const 0
+  br %2, and.rhs.2, and.end.2
+
+and.rhs.2:
+  %4 = load @c
+  %5 = const 0
+  %3 = ne %4, %5
+  jmp and.end.2
+
+and.end.2:
+  %6 = const 0
+  %1 = ne %3, %6
+  jmp or.end.1
+
+or.end.1:
+  store @r0, %1
+  %7 = load @a
+  %8 = const 0
+  br %7, and.rhs.3, and.end.3
+
+and.rhs.3:
+  %9 = load @b
+  %10 = const 0
+  %8 = ne %9, %10
+  jmp and.end.3
+
+and.end.3:
+  %11 = const 0
+  br %8, and.rhs.4, and.end.4
+
+and.rhs.4:
+  %12 = load @c
+  %13 = const 0
+  %11 = ne %12, %13
+  jmp and.end.4
+
+and.end.4:
+  store @r0, %11
+  %14 = load @r0
+  exit %14

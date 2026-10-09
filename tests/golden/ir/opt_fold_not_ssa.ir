@@ -1,0 +1,25 @@
+; spec: §8.1, §8.7 fold: vregs are not SSA. A known value dies when the vreg
+; is redefined, and a vreg defined more than once is not known in other
+; blocks; a vreg whose only definition is a const is known everywhere.
+global @g
+
+entry:
+  %0 = const 1
+  %0 = load @g
+  %1 = add %0, %0
+  %2 = const 10
+  %3 = const 4
+  br %1, left, right
+
+left:
+  %3 = const 5
+  jmp join
+
+right:
+  jmp join
+
+join:
+  %4 = add %3, %3
+  %5 = mul %2, %2
+  %6 = add %5, %4
+  exit %6

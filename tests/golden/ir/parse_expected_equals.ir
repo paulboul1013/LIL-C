@@ -1,0 +1,3 @@
+; spec: §8.3 a destination register is followed by =.
+entry:
+  %0 const 1

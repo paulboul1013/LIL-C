@@ -1,0 +1,28 @@
+% spec: §4.9 short-circuit && and ||, §4.10 putc returns x.
+% Acceptance program: && and || evaluate their right operand only when
+% needed (§4.9), observable through putc, whose value is its argument
+% (§4.10).
+%
+% Output: "BD" (only the right operands that run), a newline, the four
+% results as digits "0111", a newline, "EF" from a nested expression,
+% a newline, then "GH" from putc(putc('G') + 1) and a newline. Exit
+% status: 0 + 1 + 1 + 1 + 1 - 2 = 2.
+a = 0 && putc('A');         % not printed; a = 0
+b = 1 && putc('B');         % prints B; b = 1
+c = 1 || putc('C');         % not printed; c = 1
+e = 0 || putc('D');         % prints D; e = 1
+putc('\n');
+
+putc('0' + a);
+putc('0' + b);
+putc('0' + c);
+putc('0' + e);
+putc('\n');
+
+f = (putc('E') && 0) || putc('F');   % prints E then F; f = 1
+putc('\n');
+
+putc(putc('G') + 1);        % prints G, then H
+putc('\n');
+
+r0 = a + b + c + e + f - 2;

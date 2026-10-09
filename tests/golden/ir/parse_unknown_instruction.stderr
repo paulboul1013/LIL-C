@@ -1,0 +1,1 @@
+tests/golden/ir/parse_unknown_instruction.ir:3:8: ir error: unknown instruction 'mod'

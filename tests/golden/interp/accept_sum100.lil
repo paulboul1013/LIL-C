@@ -1,0 +1,25 @@
+% spec: §3.5 while, §4.5 addition, §4.10 putc.
+% Acceptance program: 1 + 2 + ... + 100 with a while loop.
+% Prints "5050" and a newline; exit status 0.
+i = 1;
+s = 0;
+
+while (i <= 100) {
+    s = s + i;
+    i = i + 1;
+}
+
+% Print s in decimal (LIL has no functions, so the routine is inline):
+% keep n <= 0 so that INT64_MIN works too, find the largest power of
+% ten p <= |n|, then print one digit per power.
+n = s;
+if (n < 0) putc('-'); else n = -n;
+p = 1;
+while (n / p <= -10) p = p * 10;
+while (p > 0) {
+    d = -(n / p);
+    putc('0' + d);
+    n = n + d * p;
+    p = p / 10;
+}
+putc('\n');

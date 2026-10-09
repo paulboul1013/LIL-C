@@ -1,0 +1,22 @@
+global @g
+
+entry:
+  %0 = load @g
+  %1 = copy %0
+  %2 = copy %0
+  %3 = add %0, %0
+  putc %3
+  %0 = const 9
+  putc %1
+  %1 = const 4
+  putc %1
+  br %2, next, next
+
+next:
+  putc %2
+  %4 = copy %2
+  jmp last
+
+last:
+  putc %2
+  exit %2

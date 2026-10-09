@@ -1,0 +1,7 @@
+; spec: §8.4 rule 4: blocks unreachable from the entry are not checked, even without predecessors.
+entry:
+  %0 = const 0
+  exit %0
+orphan:
+  putc %1
+  exit %1

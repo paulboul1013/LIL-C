@@ -1,0 +1,31 @@
+global @r0
+global @a
+global @b
+
+entry:
+  %0 = load @a
+  %1 = load @b
+  %2 = add %0, %1
+  store @r0, %2
+  %3 = load @a
+  %4 = load @b
+  %5 = sub %3, %4
+  store @r0, %5
+  %6 = load @a
+  %7 = load @b
+  %8 = mul %6, %7
+  store @r0, %8
+  %9 = load @a
+  %10 = load @b
+  %11 = div %9, %10
+  store @r0, %11
+  %12 = load @a
+  %13 = load @b
+  %14 = and %12, %13
+  store @r0, %14
+  %15 = load @a
+  %16 = load @b
+  %17 = or %15, %16
+  store @r0, %17
+  %18 = load @r0
+  exit %18

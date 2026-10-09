@@ -1,0 +1,14 @@
+; spec: §8.3 the dump of hand-written IR is canonical: one item per line,
+; comments and blank lines dropped, spacing normalized, CRLF accepted.
+
+   global   @a   ; first global
+	global @b
+
+start:   ; the entry block
+%3=const 007
+  %1 = const -0
+  %2 =   add   %3 ,%1
+  br %2,later,   start
+later:
+  store @a,%2
+  exit %2   ; no newline at the end

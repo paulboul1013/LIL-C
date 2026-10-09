@@ -1,0 +1,15 @@
+global @a
+global @b
+global @c
+global @r0
+
+entry:
+  %0 = load @c
+  store @b, %0
+  store @a, %0
+  %1 = load @a
+  %2 = load @b
+  %3 = add %1, %2
+  store @r0, %3
+  %4 = load @r0
+  exit %4

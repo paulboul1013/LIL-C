@@ -1,0 +1,16 @@
+global @r0
+global @x
+
+entry:
+  %0 = load @x
+  %1 = neg %0
+  store @r0, %1
+  %2 = load @x
+  %3 = not %2
+  store @r0, %3
+  %4 = load @x
+  %5 = neg %4
+  %6 = not %5
+  store @r0, %6
+  %7 = load @r0
+  exit %7

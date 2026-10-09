@@ -1,0 +1,1 @@
+tests/golden/ir/verify_unknown_global.ir:4:3: verify error: 'load' refers to a global that does not exist

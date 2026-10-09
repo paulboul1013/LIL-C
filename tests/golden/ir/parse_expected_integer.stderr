@@ -1,0 +1,1 @@
+tests/golden/ir/parse_expected_integer.ir:3:14: ir error: expected an integer

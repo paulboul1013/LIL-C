@@ -1,0 +1,4 @@
+% spec: §4.5, §4.7 unary - and ~ become neg and not; the operand first.
+r0 = -x;
+r0 = ~x;
+r0 = ~-x;

@@ -1,0 +1,12 @@
+; spec: §4.6, §5.7, §8.7 fold/dce: INT64_MIN / -1 traps: never folded, never
+; deleted; INT64_MIN / 1 and 6 / -1 fold.
+entry:
+  %0 = const -9223372036854775808
+  %1 = const -1
+  %2 = div %0, %1
+  %3 = const 1
+  %4 = div %0, %3
+  %5 = const 6
+  %6 = div %5, %1
+  %7 = add %4, %6
+  exit %7

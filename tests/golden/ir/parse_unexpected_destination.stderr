@@ -1,0 +1,1 @@
+tests/golden/ir/parse_unexpected_destination.ir:4:8: ir error: 'putc' does not produce a value

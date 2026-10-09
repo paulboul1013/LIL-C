@@ -1,0 +1,7 @@
+% spec: §4.3 left operand first; one opcode per §4.2 operator.
+r0 = a + b;
+r0 = a - b;
+r0 = a * b;
+r0 = a / b;
+r0 = a & b;
+r0 = a | b;

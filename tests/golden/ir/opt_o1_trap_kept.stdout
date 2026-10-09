@@ -1,0 +1,11 @@
+global @x
+global @r0
+
+entry:
+  %0 = const 7
+  %1 = const 0
+  %2 = div %0, %1
+  store @x, %2
+  %3 = const 2
+  store @r0, %3
+  exit %3

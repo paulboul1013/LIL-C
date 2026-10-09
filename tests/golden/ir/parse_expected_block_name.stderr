@@ -1,0 +1,1 @@
+tests/golden/ir/parse_expected_block_name.ir:3:7: ir error: expected a block name

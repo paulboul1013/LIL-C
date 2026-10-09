@@ -1,0 +1,4 @@
+% spec: §5.7, §8.7 -O1 keeps a division by zero whose value is unused: the
+% program must still die by SIGFPE.
+x = 7 / 0;
+r0 = 2;

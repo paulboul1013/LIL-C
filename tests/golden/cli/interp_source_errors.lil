@@ -1,0 +1,2 @@
+% spec: §6.4 --interp reports source errors and runs nothing.
+putc(1); x = 08;

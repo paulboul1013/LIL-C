@@ -1,0 +1,22 @@
+entry:
+  %0 = const 1
+  br %0, then, else
+
+then:
+  %1 = const 2
+  jmp join
+
+else:
+  %1 = const 3
+  jmp join
+
+join:
+  exit %1
+
+cycle.a:
+  putc %9
+  jmp cycle.b
+
+cycle.b:
+  %9 = const 4
+  jmp cycle.a

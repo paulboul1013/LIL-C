@@ -1,0 +1,2 @@
+% spec: §6.4.2 an empty --passes list is a command-line error.
+x = 1;

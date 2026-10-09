@@ -1,0 +1,1 @@
+tests/golden/ir/verify_terminator_in_middle.ir:4:3: verify error: terminator 'exit' is not the last instruction of block 'entry'

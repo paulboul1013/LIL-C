@@ -1,0 +1,1 @@
+tests/golden/ir/parse_integer_out_of_range.ir:3:14: ir error: integer out of range

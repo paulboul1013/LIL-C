@@ -1,0 +1,30 @@
+global @g
+
+entry:
+  %0 = load @g
+  br %0, work, work
+
+hop1:
+  jmp work
+
+hop2:
+  jmp work
+
+work:
+  putc %0
+  br %0, work, spin
+
+spin:
+  jmp spin_a
+
+spin_a:
+  jmp spin_b
+
+spin_b:
+  jmp spin_a
+
+self:
+  jmp self
+
+end:
+  exit %0

@@ -1,0 +1,1 @@
+tests/golden/ir/verify_unknown_block.ir:4:3: verify error: 'br' jumps to a block that does not exist

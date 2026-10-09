@@ -1,0 +1,26 @@
+% spec: §4.6 division truncates toward zero; remainder as a - a / b * b.
+% Acceptance program: Euclid's algorithm with the remainder computed as
+% a - a / b * b (v1 has no '%' operator, §4.6). gcd(1071, 462) = 21:
+% prints "21" and a newline, and the exit status is 21.
+a = 1071;
+b = 462;
+
+while (b ~= 0) {
+    t = a - a / b * b;
+    a = b;
+    b = t;
+}
+
+n = a;
+if (n < 0) putc('-'); else n = -n;
+p = 1;
+while (n / p <= -10) p = p * 10;
+while (p > 0) {
+    d = -(n / p);
+    putc('0' + d);
+    n = n + d * p;
+    p = p / 10;
+}
+putc('\n');
+
+r0 = a;

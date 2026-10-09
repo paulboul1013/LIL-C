@@ -1,0 +1,8 @@
+% spec: §3.7 break jumps to the loop end, continue to the condition; code after them is in an unreachable block.
+while (i < 10) {
+    i = i + 1;
+    if (i == 3) continue;
+    if (i == 7) break;
+    putc('0' + i);
+}
+r0 = i;

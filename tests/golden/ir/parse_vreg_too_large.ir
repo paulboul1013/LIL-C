@@ -1,0 +1,4 @@
+; spec: §8.3 vreg numbers are limited to 16777215.
+entry:
+  %16777216 = const 1
+  exit %16777216

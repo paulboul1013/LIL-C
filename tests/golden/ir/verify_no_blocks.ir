@@ -1,0 +1,2 @@
+; spec: §8.4 rule 1: a program has at least one block.
+global @x

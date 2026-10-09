@@ -1,0 +1,26 @@
+; spec: §8.4, §8.7 branch: a br on a known condition, or with two equal
+; targets, becomes a jmp; a br on an unknown value stays. Blocks that lose
+; their predecessors stay (that is the unreachable pass's job).
+global @g
+
+entry:
+  %0 = const 0
+  br %0, a, b
+
+a:
+  %1 = const 1
+  exit %1
+
+b:
+  %2 = const -5
+  br %2, c, a
+
+c:
+  %3 = load @g
+  br %3, d, d
+
+d:
+  br %3, a, e
+
+e:
+  exit %3

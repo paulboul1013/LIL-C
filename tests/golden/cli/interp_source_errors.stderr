@@ -1,0 +1,1 @@
+tests/golden/cli/interp_source_errors.lil:2:14: lexical error: invalid digit '8' in octal literal

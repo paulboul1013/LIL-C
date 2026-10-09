@@ -1,0 +1,5 @@
+% spec: §8.5 literals become const (decimal, octal §2.7.2, character §2.6).
+r0 = 9223372036854775807;
+r0 = 010;
+r0 = 'a';
+r0 = '\n';

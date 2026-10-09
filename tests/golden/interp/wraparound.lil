@@ -1,0 +1,59 @@
+% spec: §4.5 two's-complement wraparound; §4.7 ~x = -x - 1; §4.6 truncation.
+% Prints INT64_MAX + 1, -INT64_MIN, INT64_MIN * -1, INT64_MAX * 2, ~0,
+% ~INT64_MAX, -7 / 2, 7 / -2 and INT64_MIN / 1, one per line.
+max = 9223372036854775807;
+min = -9223372036854775807 - 1;
+n = max + 1;
+if (n < 0) putc('-'); else n = -n;
+p = 1;
+while (n / p <= -10) p = p * 10;
+while (p > 0) { d = -(n / p); putc('0' + d); n = n + d * p; p = p / 10; }
+putc('\n');
+n = -min;
+if (n < 0) putc('-'); else n = -n;
+p = 1;
+while (n / p <= -10) p = p * 10;
+while (p > 0) { d = -(n / p); putc('0' + d); n = n + d * p; p = p / 10; }
+putc('\n');
+n = min * -1;
+if (n < 0) putc('-'); else n = -n;
+p = 1;
+while (n / p <= -10) p = p * 10;
+while (p > 0) { d = -(n / p); putc('0' + d); n = n + d * p; p = p / 10; }
+putc('\n');
+n = max * 2;
+if (n < 0) putc('-'); else n = -n;
+p = 1;
+while (n / p <= -10) p = p * 10;
+while (p > 0) { d = -(n / p); putc('0' + d); n = n + d * p; p = p / 10; }
+putc('\n');
+n = ~0;
+if (n < 0) putc('-'); else n = -n;
+p = 1;
+while (n / p <= -10) p = p * 10;
+while (p > 0) { d = -(n / p); putc('0' + d); n = n + d * p; p = p / 10; }
+putc('\n');
+n = ~max;
+if (n < 0) putc('-'); else n = -n;
+p = 1;
+while (n / p <= -10) p = p * 10;
+while (p > 0) { d = -(n / p); putc('0' + d); n = n + d * p; p = p / 10; }
+putc('\n');
+n = -7 / 2;
+if (n < 0) putc('-'); else n = -n;
+p = 1;
+while (n / p <= -10) p = p * 10;
+while (p > 0) { d = -(n / p); putc('0' + d); n = n + d * p; p = p / 10; }
+putc('\n');
+n = 7 / -2;
+if (n < 0) putc('-'); else n = -n;
+p = 1;
+while (n / p <= -10) p = p * 10;
+while (p > 0) { d = -(n / p); putc('0' + d); n = n + d * p; p = p / 10; }
+putc('\n');
+n = min / 1;
+if (n < 0) putc('-'); else n = -n;
+p = 1;
+while (n / p <= -10) p = p * 10;
+while (p > 0) { d = -(n / p); putc('0' + d); n = n + d * p; p = p / 10; }
+putc('\n');

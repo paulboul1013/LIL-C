@@ -1,0 +1,4 @@
+; spec: §8.3 global names are unique.
+global @x
+global @y
+global @x

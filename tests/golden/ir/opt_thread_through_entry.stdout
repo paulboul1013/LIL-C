@@ -1,0 +1,18 @@
+global @g
+
+entry:
+  jmp body
+
+body:
+  %0 = load @g
+  putc %0
+  br %0, body, out
+
+hop:
+  jmp body
+
+out:
+  br %0, body, last
+
+last:
+  exit %0

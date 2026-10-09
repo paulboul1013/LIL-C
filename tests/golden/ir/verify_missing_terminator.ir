@@ -1,0 +1,4 @@
+; spec: §8.4 rule 3: every block ends with a terminator.
+entry:
+  %0 = const 1
+  putc %0

@@ -1,0 +1,1 @@
+tests/golden/cli/step_limit_missing.lil --interp --step-limit

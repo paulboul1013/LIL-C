@@ -1,0 +1,14 @@
+global @x
+global @y
+global @r0
+
+entry:
+  %0 = const 5
+  store @x, %0
+  store @y, %0
+  %1 = const 100
+  putc %1
+  %2 = const 53
+  putc %2
+  store @r0, %0
+  exit %0

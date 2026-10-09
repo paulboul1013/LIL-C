@@ -1,0 +1,1 @@
+tests/golden/interp/hand_written_invalid.ir:3:3: verify error: virtual register %0 may be used before it is defined

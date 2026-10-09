@@ -1,0 +1,17 @@
+; spec: §8.6 --interp --ir-input runs hand-written IR: prints "hi" and
+; exits with 300 & 0xff = 44.
+global @g
+
+entry:
+  %0 = const 104
+  putc %0
+  %1 = const 1
+  %2 = add %0, %1
+  store @g, %2
+  jmp out
+
+out:
+  %3 = load @g
+  putc %3
+  %4 = const 300
+  exit %4

@@ -1,0 +1,37 @@
+global @i
+global @r0
+
+entry:
+  jmp do.body.1
+
+do.body.1:
+  %0 = load @i
+  %1 = const 1
+  %2 = add %0, %1
+  store @i, %2
+  %3 = load @i
+  %4 = const 5
+  %5 = lt %3, %4
+  br %5, if.then.2, if.end.2
+
+if.then.2:
+  jmp do.cond.1
+
+dead.3:
+  jmp if.end.2
+
+if.end.2:
+  jmp do.end.1
+
+dead.4:
+  jmp do.cond.1
+
+do.cond.1:
+  %6 = const 1
+  br %6, do.body.1, do.end.1
+
+do.end.1:
+  %7 = load @i
+  store @r0, %7
+  %8 = load @r0
+  exit %8

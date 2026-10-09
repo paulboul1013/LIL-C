@@ -1,0 +1,27 @@
+; spec: §8.7 copyprop: uses of %d after '%d = copy %r' read %r (chains
+; resolve to the root) until %d or %r is redefined. The facts go on into a
+; block whose only incoming edge comes from the block before (last), not
+; into a block with two incoming edges (next: both br targets), because
+; vregs cross blocks and are not SSA (§8.1).
+global @g
+
+entry:
+  %0 = load @g
+  %1 = copy %0
+  %2 = copy %1
+  %3 = add %2, %1
+  putc %3
+  %0 = const 9
+  putc %1
+  %1 = const 4
+  putc %1
+  br %2, next, next
+
+next:
+  putc %2
+  %4 = copy %2
+  jmp last
+
+last:
+  putc %4
+  exit %4

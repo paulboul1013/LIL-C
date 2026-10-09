@@ -1,0 +1,9 @@
+% spec: §5.7, §8.7 -O1 behaves exactly like -O0 on constant conditions,
+% identities and dead code (the same program as ir/opt_o1_constant_conditions).
+x = 5;
+if (1) y = x * 1; else y = 99;
+if (0) putc('n');
+while (0) putc('w');
+do putc('d'); while (0);
+while (x) { putc(x + 0 + 48); break; putc('!'); }
+r0 = y + (x - x);

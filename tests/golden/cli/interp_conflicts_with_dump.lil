@@ -1,0 +1,2 @@
+% spec: §6.4.2 --interp is a mode like --dump-*: two modes conflict.
+x = 1;

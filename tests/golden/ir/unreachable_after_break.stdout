@@ -1,0 +1,35 @@
+global @x
+global @r0
+
+entry:
+  jmp while.cond.1
+
+while.cond.1:
+  %0 = const 1
+  br %0, while.body.1, while.end.1
+
+while.body.1:
+  jmp while.end.1
+
+dead.2:
+  %1 = const 1
+  store @x, %1
+  %2 = load @x
+  %3 = const 0
+  br %2, and.rhs.3, and.end.3
+
+and.rhs.3:
+  %4 = const 2
+  %5 = const 0
+  %3 = ne %4, %5
+  jmp and.end.3
+
+and.end.3:
+  store @x, %3
+  jmp while.cond.1
+
+while.end.1:
+  %6 = load @x
+  store @r0, %6
+  %7 = load @r0
+  exit %7

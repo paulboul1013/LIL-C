@@ -1,0 +1,15 @@
+; spec: §8.7 merge: the entry is never merged into a predecessor, even
+; when 'jmp entry' (from back) is its only incoming edge: blocks[0] must
+; stay the entry.
+global @g
+
+entry:
+  %0 = load @g
+  putc %0
+  br %0, back, out
+
+back:
+  jmp entry
+
+out:
+  exit %0

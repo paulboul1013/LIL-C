@@ -1,0 +1,9 @@
+global @r0
+
+entry:
+  %0 = const 2
+  %1 = const 3
+  %2 = const 6
+  store @r0, %2
+  %3 = load @r0
+  exit %3

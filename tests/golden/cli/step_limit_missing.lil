@@ -1,0 +1,2 @@
+% spec: §6.4.2 --step-limit needs a number.
+x = 1;

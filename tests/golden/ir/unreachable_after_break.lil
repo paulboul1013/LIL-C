@@ -1,0 +1,7 @@
+% spec: §8.5 statements after break are lowered into an unreachable dead block.
+while (1) {
+    break;
+    x = 1;
+    x = x && 2;
+}
+r0 = x;
